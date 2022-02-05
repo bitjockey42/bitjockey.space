@@ -24,7 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   result.data.allFile.edges.forEach(({ node }) => {
     createPage({
-      path: `notes/${node.childMdx.slug}`,
+      path: `garden/${node.childMdx.slug}`,
       component: notesTemplate,
       context: {
         // additional data can be passed via context

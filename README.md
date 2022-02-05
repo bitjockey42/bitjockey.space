@@ -16,7 +16,7 @@ Go back to the Obisidan settings -> Core Plugins -> Templates -> click gear icon
 
 Create a note under that templates folder called Frontmatter and enter this:
 
-```markdown
+```yaml
 ---
 title: "{{title}}"
 date: {{date}}T{{time}}

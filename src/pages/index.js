@@ -8,7 +8,7 @@ const Home = ({
 }) => {
   const Notes = edges.map(edge => (
     <article>
-      <Link to={`/notes/${edge.node.slug}`}>
+      <Link to={`/garden/${edge.node.slug}`}>
         <h1>{edge.node.frontmatter.title}</h1>
       </Link>
       <p>{edge.node.frontmatter.date}</p>

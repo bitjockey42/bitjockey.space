@@ -15,7 +15,7 @@ export default function noteTemplate({ data }, props) {
       <ul>
         {mdx.inboundReferences.map(ref => (
           <li>
-            <Link to={`/notes/${ref.slug}`}>{ref.frontmatter.title}</Link>
+            <Link to={`/garden/${ref.slug}`}>{ref.frontmatter.title}</Link>
           </li>
         ))}
       </ul>
