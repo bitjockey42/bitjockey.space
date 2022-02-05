@@ -2,15 +2,24 @@
 
 Initialized from [here](https://dev.to/bathrobe/creating-a-diy-digital-garden-with-obsidian-and-gatsby-378e).
 
+- [bitjockey.space](#bitjockeyspace)
+- [Setup](#setup)
+  - [Folders](#folders)
+  - [Templates](#templates)
+
+# Setup
+
+## Folders
+
+Set up these folders:
+
+```shell
+mkdir -p content/{garden,_private/templates}
+```
+
 ## Templates
 
 Enable the Templates Core Plugin in Obsidian settings.
-
-Create a folder in the vault: `content/_private`
-
-```shell
-mkdir -p content/_private/_templates
-```
 
 Go back to the Obisidan settings -> Core Plugins -> Templates -> click gear icon. Set the templates folder to `_private/_templates`.
 
