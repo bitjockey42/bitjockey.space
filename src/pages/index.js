@@ -19,7 +19,7 @@ const Home = ({
 
 export default Home
 export const pageQuery = graphql`
-  query MyQuery {
+  query IndexQuery {
     allMdx {
       edges {
         node {
