@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Hero from "../components/Hero"
+import Hero from "../components/hero"
+import Title from "../components/title"
 import NotesList from "../components/notesList"
 import "./styles.scss"
 
@@ -11,7 +12,9 @@ const Home = ({
 }) => {
   return (
     <section>
-      <Hero />
+      <Hero>
+        <Title>My garden</Title>
+      </Hero>
       <NotesList edges={edges} />
     </section>
   )
