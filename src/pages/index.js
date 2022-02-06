@@ -1,20 +1,32 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import "./styles.scss"
 
 const Home = ({
   data: {
     allMdx: { edges },
   },
 }) => {
-  const Notes = edges.map((edge, i) => (
-    <article>
+  const NotesList = edges.map((edge, i) => (
+    <li>
       <Link key={i} to={`/garden/${edge.node.slug}`}>
-        <h1>{edge.node.frontmatter.title}</h1>
+        {edge.node.frontmatter.title} <b>{edge.node.frontmatter.date}</b>
       </Link>
-      <p>{edge.node.frontmatter.date}</p>
-    </article>
+    </li>
   ))
-  return <section>{Notes}</section>
+  return (
+    <section>
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            <ul>
+              {NotesList}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default Home
