@@ -5,9 +5,9 @@ import ShortcodeWrapper from "../components/ShortcodeWrapper"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
-
   return (
     <article>
+      <h1>{mdx.frontmatter.title}</h1>
       {/* <ShortcodeWrapper> */}
       <MDXRenderer>{mdx.body}</MDXRenderer>
       {/* </ShortcodeWrapper> */}
@@ -35,6 +35,9 @@ export const query = graphql`
           }
           slug
         }
+      }
+      frontmatter {
+        title
       }
     }
   }
