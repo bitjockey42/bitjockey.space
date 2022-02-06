@@ -45,6 +45,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: `garden/${node.name}`,
       component: categoryTemplate,
+      context: {
+        category: `/${node.name}/`,
+      }
     })
   })
 }

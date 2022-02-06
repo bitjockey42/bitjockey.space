@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-export default function categoryTemplate({ data }) {
+export default function categoryTemplate({ pageContext, data }) {
+  const { category } = pageContext
   const { edges } = data.allMdx
 
   const Notes = edges.map(edge => (
@@ -17,8 +18,8 @@ export default function categoryTemplate({ data }) {
 }
 
 export const query = graphql`
-  query CategoryQuery {
-    allMdx(filter: {slug: {regex: "/blog/"}}) {
+  query($category: String) {
+    allMdx(filter: {slug: {regex: $category}}) {
       edges {
         node {
           slug
