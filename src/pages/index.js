@@ -12,15 +12,18 @@ const Home = ({
   },
 }) => {
   return (
-    <section>
-      <Container>
-        <Hero>
-          <Title>bitjockey's digital garden</Title>
-          <p>Welcome to my not-so-secret digital garden.</p>
-        </Hero>
-        <NotesList edges={edges} />
-      </Container>
-    </section>
+    <Container>
+      <Hero>
+        <Title>bitjockey's digital garden</Title>
+        <p>Welcome to my not-so-secret digital garden.</p>
+      </Hero>
+      <div className="columns">
+        <div className="column">
+          <h4 className="title is-4 is-uppercase">Notes</h4>
+          <NotesList edges={edges} />
+        </div>
+      </div>
+    </Container>
   )
 }
 

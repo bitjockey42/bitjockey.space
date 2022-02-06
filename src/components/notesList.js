@@ -5,7 +5,7 @@ const NotesLink = ({ edge }) => {
   return (
     <li>
       <Link to={`/garden/${edge.node.slug}`}>
-        {edge.node.frontmatter.title} <b>{edge.node.frontmatter.date}</b>
+        {edge.node.frontmatter.title}
       </Link>
     </li>
   )
