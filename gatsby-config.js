@@ -29,10 +29,9 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-double-brackets-link",
+            resolve: "gatsby-remark-obsidian",
             options: {
-              titleToURLPath: `${__dirname}/resolve-url.js`,
-              stripBrackets: true,
+              titleToURLPath: (title) => `/garden/${title}`,
             },
           },
         ],
