@@ -31,7 +31,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-obsidian",
             options: {
-              titleToURLPath: (title) => `/garden/${title}`,
+              titleToURL: (title) => `/${title}`,
             },
           },
         ],
