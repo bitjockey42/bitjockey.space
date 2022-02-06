@@ -1,5 +1,7 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import Hero from "../components/Hero"
+import NotesList from "../components/notesList"
 import "./styles.scss"
 
 const Home = ({
@@ -7,24 +9,10 @@ const Home = ({
     allMdx: { edges },
   },
 }) => {
-  const NotesList = edges.map((edge, i) => (
-    <li>
-      <Link key={i} to={`/garden/${edge.node.slug}`}>
-        {edge.node.frontmatter.title} <b>{edge.node.frontmatter.date}</b>
-      </Link>
-    </li>
-  ))
   return (
     <section>
-      <div className="container">
-        <div className="columns">
-          <div className="column">
-            <ul>
-              {NotesList}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Hero />
+      <NotesList edges={edges} />
     </section>
   )
 }
