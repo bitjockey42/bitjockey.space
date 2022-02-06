@@ -6,9 +6,9 @@ const Home = ({
     allMdx: { edges },
   },
 }) => {
-  const Notes = edges.map(edge => (
+  const Notes = edges.map((edge, i) => (
     <article>
-      <Link to={`/garden/${edge.node.slug}`}>
+      <Link key={i} to={`/garden/${edge.node.slug}`}>
         <h1>{edge.node.frontmatter.title}</h1>
       </Link>
       <p>{edge.node.frontmatter.date}</p>

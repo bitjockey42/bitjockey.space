@@ -2,24 +2,27 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 export default function categoryTemplate({ pageContext, data }) {
-  const { category } = pageContext
+  const { categoryName } = pageContext
   const { edges } = data.allMdx
 
-  const Notes = edges.map(edge => (
-    <article>
+  const posts = edges.map((edge, i) => (
+    <li key={i}>
       <Link to={`/garden/${edge.node.slug}`}>
-        <h1>{edge.node.frontmatter.title}</h1>
+        {edge.node.frontmatter.title}
       </Link>
-      <p>{edge.node.frontmatter.date}</p>
-    </article>
+    </li>
   ))
-  return <section>{Notes}</section>
-
+  return (
+    <section>
+      <h1>{categoryName}</h1>
+      <ul>{posts}</ul>
+    </section>
+  )
 }
 
 export const query = graphql`
-  query($category: String) {
-    allMdx(filter: {slug: {regex: $category}}) {
+  query($categoryRegex: String) {
+    allMdx(filter: {slug: {regex: $categoryRegex}}) {
       edges {
         node {
           slug

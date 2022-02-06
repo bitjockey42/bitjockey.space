@@ -13,8 +13,8 @@ export default function noteTemplate({ data }, props) {
       {/* </ShortcodeWrapper> */}
       {mdx.inboundReferences.length > 0 ? <p>Referenced in:</p> : ""}
       <ul>
-        {mdx.inboundReferences.map(ref => (
-          <li>
+        {mdx.inboundReferences.map((ref, i) => (
+          <li key={i}>
             <Link to={`/garden/${ref.slug}`}>{ref.frontmatter.title}</Link>
           </li>
         ))}
