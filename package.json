@@ -1,16 +1,16 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "bitjockey.space",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "My digital garden",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
-    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
-    "format": "NODE_OPTIONS=--openssl-legacy-provider prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run develop",
-    "serve": "NODE_OPTIONS=--openssl-legacy-provider gatsby serve",
-    "clean": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
