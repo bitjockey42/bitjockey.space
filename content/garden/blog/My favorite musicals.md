@@ -4,5 +4,5 @@ date: 2022-02-05T21:59
 ---
 - Next to Normal
 - Wicked
-- Waitress
+- Waitress - Saw this when Sara Bareilles was starring as Jenna
 - Company
