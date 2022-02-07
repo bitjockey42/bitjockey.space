@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import NotesList from "../components/notesList"
 
-export default function categoryTemplate({ pageContext, data }) {
+export default function TagTemplate({ pageContext, data }) {
   const { categoryName } = pageContext
   const { edges } = data.allMdx
 

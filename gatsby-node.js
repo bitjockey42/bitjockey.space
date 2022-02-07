@@ -4,14 +4,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
   {
     allMdx {
-        nodes {
-        id
-        body
-        parent {
-            ... on File {
-                name
-            }
-        }
+      nodes {
         slug
       }
       allTags: group(field: frontmatter___tags) {
@@ -34,12 +27,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const tagTemplate = require.resolve(`./src/templates/tagTemplate.js`)
 
   markdowns.forEach((node) => {
-      const { id, body } = node;
+      const { slug } = node;
 
       createPage({
           path: `/${node.slug}`,
           component: noteTemplate,
-          context: { id, body },
+          context: { slug },
       });
   });
 
