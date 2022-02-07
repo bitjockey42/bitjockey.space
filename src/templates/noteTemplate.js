@@ -15,11 +15,13 @@ export default function noteTemplate({ data }, props) {
         <div className="columns">
           <div className="column is-three-quarters">
             <div className="content">
-            <Title>{mdx.frontmatter.title}</Title>
-            {/* <ShortcodeWrapper> */}
-            <MDXRenderer>{mdx.body}</MDXRenderer>
-            {/* </ShortcodeWrapper> */}
-            <Link to="/" className="button is-small">&larr; Back Home</Link>
+              <Title>{mdx.frontmatter.title}</Title>
+              {/* <ShortcodeWrapper> */}
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+              {/* </ShortcodeWrapper> */}
+              <Link to="/" className="button is-small">
+                &larr; Back Home
+              </Link>
             </div>
           </div>
           <div className="column">
