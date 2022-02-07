@@ -1,28 +1,18 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const notesTemplate = require.resolve(`./src/templates/noteTemplate.js`)
-  const categoryTemplate = require.resolve(`./src/templates/categoryTemplate.js`)
-
   const result = await graphql(`
     {
-      allFile {
-        edges {
-          node {
-            childMdx {
-              slug
-            }
-          }
+      allMdx {
+        nodes {
+          slug
+        }
+        allTags: group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
         }
       }
-      allDirectory {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-    }  
+    }
   `)
 
   if (result.errors) {
@@ -30,25 +20,29 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allFile.edges.forEach(({ node }) => {
+  const markdowns = result.data.allMdx.nodes
+  const tags = result.data.allMdx.allTags
+
+  const noteTemplate = require.resolve(`./src/templates/noteTemplate.js`)
+  const tagTemplate = require.resolve(`./src/templates/tagTemplate.js`)
+
+  markdowns.forEach(node => {
+    const { slug } = node
+
     createPage({
-      path: `garden/${node.childMdx.slug}`,
-      component: notesTemplate,
-      context: {
-        // additional data can be passed via context
-        slug: node.childMdx.slug,
-      },
+      path: `/${node.slug}`,
+      component: noteTemplate,
+      context: { slug },
     })
   })
 
-  result.data.allDirectory.edges.forEach(({ node }) => {
+  tags.forEach(({ tag }) => {
     createPage({
-      path: `garden/${node.name}`,
-      component: categoryTemplate,
+      path: `/tags/${tag}`,
+      component: tagTemplate,
       context: {
-        categoryName: node.name,
-        categoryRegex: `/${node.name}/`,
-      }
+        tag: tag,
+      },
     })
   })
 }

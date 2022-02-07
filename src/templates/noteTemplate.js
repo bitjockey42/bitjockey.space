@@ -1,31 +1,32 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import ShortcodeWrapper from "../components/ShortcodeWrapper"
+import Container from "../components/container"
+import Title from "../components/title"
+import Panel from "../components/panel"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
   return (
-    <article>
-      <h1>{mdx.frontmatter.title}</h1>
-      {/* <ShortcodeWrapper> */}
-      <MDXRenderer>{mdx.body}</MDXRenderer>
-      {/* </ShortcodeWrapper> */}
-      {mdx.inboundReferences.length > 0 ? <p>Referenced in:</p> : ""}
-      <ul>
-        {mdx.inboundReferences.map((ref, i) => (
-          <li key={i}>
-            <Link to={`/garden/${ref.slug}`}>{ref.frontmatter.title}</Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/">Back Home</Link>
-    </article>
+    <Container>
+      <div className="columns">
+        <div className="column is-three-quarters">
+          <Title>{mdx.frontmatter.title}</Title>
+          {/* <ShortcodeWrapper> */}
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+          {/* </ShortcodeWrapper> */}
+          <Link to="/">Back Home</Link>
+        </div>
+        <div className="column">
+          <Panel mdx={mdx} />
+        </div>
+      </div>
+    </Container>
   )
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(slug: { eq: $slug }) {
       body
       inboundReferences {
@@ -38,6 +39,7 @@ export const query = graphql`
       }
       frontmatter {
         title
+        tags
       }
     }
   }

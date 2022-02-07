@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+const slugify = require("slugify")
 
 module.exports = {
   /* Your site config here */
@@ -29,10 +30,9 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-double-brackets-link",
+            resolve: "gatsby-remark-obsidian",
             options: {
-              titleToURLPath: `${__dirname}/resolve-url.js`,
-              stripBrackets: true,
+              titleToURL: title => `/${slugify(title)}`,
             },
           },
         ],
