@@ -41,10 +41,18 @@ const Panel = ({ mdx }) => {
     <article className="panel">
       <p className="panel-heading">Metadata</p>
       <p className="panel-tabs">
-        <a id="tags" onClick={onClick}>
+        <a
+          id="tags"
+          onClick={onClick}
+          className={activeTab === "tags" ? "is-active" : ""}
+        >
           Tags
         </a>
-        <a id="backlinks" onClick={onClick}>
+        <a
+          id="backlinks"
+          onClick={onClick}
+          className={activeTab === "backlinks" ? "is-active" : ""}
+        >
           Backlinks
         </a>
       </p>
