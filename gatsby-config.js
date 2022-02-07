@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+const slugify = require("slugify")
 
 module.exports = {
   /* Your site config here */
@@ -31,7 +32,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-obsidian",
             options: {
-              titleToURL: (title) => `/${title}`,
+              titleToURL: (title) => `/${slugify(title)}`,
             },
           },
         ],
