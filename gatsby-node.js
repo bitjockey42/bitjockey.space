@@ -1,9 +1,10 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
+  const slugify = require("slugify")
   const { createPage } = actions
 
   const result = await graphql(`
     {
-      allMdx {
+      allMdx(sort: { order: ASC, fields: frontmatter___tags }) {
         nodes {
           slug
         }
@@ -30,7 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const { slug } = node
 
     createPage({
-      path: `/${node.slug}`,
+      path: `/${slugify(node.slug)}`,
       component: noteTemplate,
       context: { slug },
     })

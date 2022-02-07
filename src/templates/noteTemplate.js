@@ -4,24 +4,45 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
+import Hero from "../components/hero"
+import TableOfContents from "../components/tableOfContents"
+import InfoCard from "../components/infoCard"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
+  const hasToc = mdx.tableOfContents.items
+
   return (
-    <Container>
-      <div className="columns">
-        <div className="column is-three-quarters">
-          <Title>{mdx.frontmatter.title}</Title>
-          {/* <ShortcodeWrapper> */}
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-          {/* </ShortcodeWrapper> */}
-          <Link to="/">Back Home</Link>
-        </div>
-        <div className="column">
-          <Panel mdx={mdx} />
-        </div>
-      </div>
-    </Container>
+    <div>
+      <Hero>
+        <Title>{mdx.frontmatter.title}</Title>
+      </Hero>
+      <section className="section">
+        <Container>
+          <div className="columns">
+            {hasToc && (
+              <div className="column is-2">
+                <TableOfContents mdx={mdx} />
+              </div>
+            )}
+            <div className="column">
+              <div className="content">
+                {/* <ShortcodeWrapper> */}
+                <MDXRenderer>{mdx.body}</MDXRenderer>
+                {/* </ShortcodeWrapper> */}
+              </div>
+            </div>
+            <div className="column is-3">
+              <Panel mdx={mdx} />
+              <InfoCard mdx={mdx} />
+              <Link to="/" className="button is-small">
+                &larr; Back Home
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </div>
   )
 }
 
@@ -39,8 +60,10 @@ export const query = graphql`
       }
       frontmatter {
         title
+        date
         tags
       }
+      tableOfContents
     }
   }
 `
