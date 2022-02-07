@@ -16,7 +16,10 @@ export default function noteTemplate({ data }, props) {
       <section className="section">
         <Container>
           <div className="columns">
-            <div className="column is-three-quarters">
+            <div className="column is-2">
+              <h1>LSDKjflsdkjf</h1>
+            </div>
+            <div className="column">
               <div className="content">
                 {/* <ShortcodeWrapper> */}
                 <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -26,7 +29,7 @@ export default function noteTemplate({ data }, props) {
                 &larr; Back Home
               </Link>
             </div>
-            <div className="column">
+            <div className="column is-3">
               <div className="card mb-5">
                 <header className="card-header">
                   <p className="card-header-title">Information</p>
