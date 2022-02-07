@@ -4,11 +4,12 @@ import Container from "../components/container"
 import Hero from "../components/hero"
 import Title from "../components/title"
 import NotesList from "../components/notesList"
+import TagsList from "../components/tagsList"
 import "./styles.scss"
 
 const Home = ({
   data: {
-    allMdx: { edges },
+    allMdx: { edges, allTags },
   },
 }) => {
   return (
@@ -19,8 +20,18 @@ const Home = ({
       </Hero>
       <div className="columns">
         <div className="column">
-          <h4 className="title is-4 is-uppercase">Notes</h4>
-          <NotesList edges={edges} />
+          <div className="card">
+            <header className="card-header">
+              <p className="card-header-title is-uppercase">
+                Tags
+              </p>
+            </header>
+            <div className="card-content">
+              <div className="content">
+                <TagsList allTags={allTags} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Container>
@@ -39,6 +50,10 @@ export const pageQuery = graphql`
             date
           }
         }
+      }
+      allTags: group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
   }
