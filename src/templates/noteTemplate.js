@@ -27,6 +27,14 @@ export default function noteTemplate({ data }, props) {
               </Link>
             </div>
             <div className="column">
+              <div className="card mb-5">
+                <header className="card-header">
+                  <p className="card-header-title">Information</p>
+                </header>
+                <div className="card-content">
+                  <div className="content">{mdx.frontmatter.date}</div>
+                </div>
+              </div>
               <Panel mdx={mdx} />
             </div>
           </div>
@@ -50,6 +58,7 @@ export const query = graphql`
       }
       frontmatter {
         title
+        date
         tags
       }
     }
