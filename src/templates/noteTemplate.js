@@ -8,6 +8,8 @@ import Hero from "../components/hero"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
+  const hasToc = mdx.tableOfContents.items
+
   return (
     <div>
       <Hero>
@@ -16,13 +18,18 @@ export default function noteTemplate({ data }, props) {
       <section className="section">
         <Container>
           <div className="columns">
-            <div className="column is-2">
-              <aside className="menu">
-                <p className="menu-label">
-                  Table of Contents
-                </p>
-              </aside>
-            </div>
+            {
+              hasToc && (
+              <div className="column is-2">
+                <aside className="menu">
+                  <p className="menu-label">
+                    Table of Contents
+                  </p>
+                  <ul className="menu-list">
+                  </ul>
+                </aside>
+              </div>
+            )}
             <div className="column">
               <div className="content">
                 {/* <ShortcodeWrapper> */}
