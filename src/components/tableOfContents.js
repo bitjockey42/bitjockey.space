@@ -8,23 +8,31 @@ const MenuItem = ({ item }) => {
   )
 }
 
-const MenuList = ({ tableOfContents }) => {
+const MenuList = ({ items }) => {
   // children
   return (
     <ul className="menu-list">
-      {tableOfContents.items.length > 0 &&
-        tableOfContents.items.map((item, i) => (
+      {items.length > 0 &&
+        items.map((item, i) => (
           <MenuItem key={i} item={item} />
         ))}
     </ul>
   ) 
 }
 
+const TableOfContentsTree = ({ data }) => {
+  if (data.items.length > 0) {
+    return <><p>Placeholder</p></>
+  } else {
+    return <MenuList items={data.items} />
+  }
+}
+
 const TableOfContents = ({ mdx }) => {
   return (
     <aside className="menu">
       <p className="menu-label">Table of Contents</p>
-      <MenuList tableOfContents={mdx.tableOfContents} />
+      <TableOfContentsTree data={mdx.tableOfContents} />
     </aside>
   )
 }
