@@ -17,7 +17,11 @@ export default function noteTemplate({ data }, props) {
         <Container>
           <div className="columns">
             <div className="column is-2">
-              <h1>LSDKjflsdkjf</h1>
+              <aside className="menu">
+                <p className="menu-label">
+                  Table of Contents
+                </p>
+              </aside>
             </div>
             <div className="column">
               <div className="content">
@@ -80,6 +84,7 @@ export const query = graphql`
         date
         tags
       }
+      tableOfContents
     }
   }
 `
