@@ -1,8 +1,43 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
+const TagsPanel = ({ tags }) => {
+  return (
+    <>
+      {tags && tags.map((tag, i) => 
+        (
+          <Link key={i} to={`/${tag}`} className="panel-block">
+            {tag}
+          </Link>
+          )
+      )}
+    </>
+  )
+}
+
+const BacklinksPanel = ({ inboundReferences }) => {
+  return (
+    <>
+      {inboundReferences && inboundReferences.map((ref, i) => 
+        (
+          <Link key={i} to={`/${ref.slug}`} className="panel-block">
+            {ref.frontmatter.title}
+          </Link>
+          )
+      )}
+    </>
+  )
+}
+
 const Panel = ({ mdx }) => {
-  const { inboundReferences } = mdx
+  const { inboundReferences, frontmatter } = mdx
+  const { tags } = frontmatter
+  const [activeTab, setActiveTab] = useState("tags")
+
+  const onClick = (e) => {
+    setActiveTab(e.target.id)
+    console.log(`activeTab: ${activeTab}`)
+  }
 
   return (
     <article className="panel">
@@ -10,23 +45,15 @@ const Panel = ({ mdx }) => {
         Metadata
       </p>
       <p className="panel-tabs">
-        <a className="is-active">Backlinks</a>
+        <a id="tags" onClick={onClick}>Tags</a>
+        <a id="backlinks" onClick={onClick}>Backlinks</a>
       </p>
-      <div className="panel-block">
-        <p className="control has-icons-left">
-          <input className="input is-primary" type="text" placeholder="Search" />
-          <span className="icon is-left">
-            <i className="fas fa-search" aria-hidden="true"></i>
-          </span>
-        </p>
-      </div>
-      {inboundReferences.map((ref, i) => 
-        (
-          <Link key={i} to={`/${ref.slug}`} className="panel-block">
-            {ref.frontmatter.title}
-          </Link>
-          )
-      )}
+      {
+        activeTab === "backlinks" ?
+          <BacklinksPanel inboundReferences={inboundReferences} />
+        :
+          <TagsPanel tags={tags} />
+      } 
     </article>
   )
 }
