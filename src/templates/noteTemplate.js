@@ -5,6 +5,7 @@ import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
 import Hero from "../components/hero"
+import TableOfContents from "../components/tableOfContents"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
@@ -21,13 +22,7 @@ export default function noteTemplate({ data }, props) {
             {
               hasToc && (
               <div className="column is-2">
-                <aside className="menu">
-                  <p className="menu-label">
-                    Table of Contents
-                  </p>
-                  <ul className="menu-list">
-                  </ul>
-                </aside>
+                <TableOfContents toc={mdx.TableOfContents} />
               </div>
             )}
             <div className="column">
