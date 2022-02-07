@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Container from "../components/container"
 import Title from "../components/title"
+import Panel from "../components/panel"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
@@ -17,16 +18,7 @@ export default function noteTemplate({ data }, props) {
           <Link to="/">Back Home</Link>
         </div>
         <div className="column">
-          <aside className="menu">
-            {mdx.inboundReferences.length > 0 ? <p className="menu-label">Referenced in:</p> : ""}
-            <ul className="menu-list">
-              {mdx.inboundReferences.map((ref, i) => (
-                <li key={i}>
-                  <Link to={`/${ref.slug}`}>{ref.frontmatter.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
+          <Panel mdx={mdx}/>
         </div>
       </div>
     </Container>
