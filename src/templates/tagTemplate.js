@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
 import Hero from "../components/hero"
@@ -10,7 +11,7 @@ export default function TagTemplate({ pageContext, data }) {
   const { edges } = data.allMdx
 
   return (
-    <div>
+    <Layout>
       <Hero>
         <Title>
           tag: <span className="tag is-large is-round">{tag}</span>
@@ -24,7 +25,7 @@ export default function TagTemplate({ pageContext, data }) {
           <NotesList edges={edges} />
         </Container>
       </section>
-    </div>
+    </Layout>
   )
 }
 

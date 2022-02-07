@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
@@ -13,7 +14,7 @@ export default function noteTemplate({ data }, props) {
   const hasToc = mdx.tableOfContents.items
 
   return (
-    <div>
+    <Layout>
       <Hero>
         <Title>{mdx.frontmatter.title}</Title>
       </Hero>
@@ -42,7 +43,7 @@ export default function noteTemplate({ data }, props) {
           </div>
         </Container>
       </section>
-    </div>
+    </Layout>
   )
 }
 

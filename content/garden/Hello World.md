@@ -5,3 +5,5 @@ tags: ["hello"]
 ---
 
 Hello, world.
+
+Here's [[Another One]].
