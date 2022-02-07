@@ -6,7 +6,7 @@ const TagsPanel = ({ tags }) => {
     <>
       {tags &&
         tags.map((tag, i) => (
-          <Link key={i} to={`/${tag}`} className="panel-block">
+          <Link key={i} to={`/tags/${tag}`} className="panel-block">
             {tag}
           </Link>
         ))}
@@ -38,23 +38,27 @@ const Panel = ({ mdx }) => {
   }
 
   return (
-    <article className="panel">
+    <article className="panel is-info">
       <p className="panel-heading">Metadata</p>
       <p className="panel-tabs">
-        <a
-          id="tags"
-          onClick={onClick}
-          className={activeTab === "tags" ? "is-active" : ""}
-        >
-          Tags
-        </a>
-        <a
-          id="backlinks"
-          onClick={onClick}
-          className={activeTab === "backlinks" ? "is-active" : ""}
-        >
-          Backlinks
-        </a>
+        {tags.length > 0 && (
+          <a
+            id="tags"
+            onClick={onClick}
+            className={activeTab === "tags" ? "is-active" : ""}
+          >
+            Tags
+          </a>
+        )}
+        {inboundReferences.length > 0 && (
+          <a
+            id="backlinks"
+            onClick={onClick}
+            className={activeTab === "backlinks" ? "is-active" : ""}
+          >
+            Backlinks
+          </a>
+        )}
       </p>
       {activeTab === "backlinks" ? (
         <BacklinksPanel inboundReferences={inboundReferences} />
