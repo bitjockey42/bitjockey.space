@@ -2,27 +2,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    {
-      allMdx {
-            nodes {
-                id
-                body
-                parent {
-                    ... on File {
-                        name
-                    }
-                }
-                slug
+  {
+    allMdx {
+        nodes {
+        id
+        body
+        parent {
+            ... on File {
+                name
             }
         }
-      allDirectory {
-        edges {
-          node {
-            name
-          }
-        }
+        slug
+      }
+      allTags: group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
+  }
   `)
 
   if (result.errors) {
@@ -31,10 +28,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const markdowns = result.data.allMdx.nodes
-  const categories = result.data.allDirectory.edges 
+  const tags = result.data.allMdx.allTags
 
   const noteTemplate = require.resolve(`./src/templates/noteTemplate.js`)
-  const categoryTemplate = require.resolve(`./src/templates/categoryTemplate.js`)
+  const tagTemplate = require.resolve(`./src/templates/tagTemplate.js`)
 
   markdowns.forEach((node) => {
       const { id, body } = node;
@@ -46,13 +43,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       });
   });
 
-  categories.forEach(({ node }) => {
+  tags.forEach(({ tag }) => {
     createPage({
-      path: `/${node.name}`,
-      component: categoryTemplate,
+      path: `/tags/${tag}`,
+      component: tagTemplate,
       context: {
-        categoryName: node.name,
-        categoryRegex: `/${node.name}/`,
+        tag: tag,
       }
     })
   })

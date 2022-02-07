@@ -1,7 +1,7 @@
 ---
 title: "Testing"
 date: 2022-02-06T21:16
-tags: ["Hwatalsdjkf"]
+tags: ["post"]
 ---
 
 Here's a link
