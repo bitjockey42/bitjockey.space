@@ -3,8 +3,6 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-const slugify = require("slugify")
-
 module.exports = {
   /* Your site config here */
   plugins: [
