@@ -10,7 +10,7 @@ const NotesLink = ({ edge }) => {
           {edge.node.frontmatter.title}
         </Link>
       </h1>
-      <h6 className="subtitle is-6">Subtitle 6</h6>
+      <h6 className="subtitle is-6">{edge.node.excerpt}</h6>
     </div>
   )
 }

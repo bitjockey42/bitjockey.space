@@ -32,6 +32,7 @@ export const query = graphql`
       edges {
         node {
           slug
+          excerpt
           frontmatter {
             title
             date
