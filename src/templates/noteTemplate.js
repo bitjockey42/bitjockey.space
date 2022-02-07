@@ -4,31 +4,35 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
-import NavBar from "../components/navbar"
+import Hero from "../components/hero"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
   return (
-    <section className="section">
-      <Container>
-        <div className="columns">
-          <div className="column is-three-quarters">
-            <div className="content">
-              <Title>{mdx.frontmatter.title}</Title>
-              {/* <ShortcodeWrapper> */}
-              <MDXRenderer>{mdx.body}</MDXRenderer>
-              {/* </ShortcodeWrapper> */}
+    <div>
+      <Hero>
+        <Title>{mdx.frontmatter.title}</Title>
+      </Hero>
+      <section className="section">
+        <Container>
+          <div className="columns">
+            <div className="column is-three-quarters">
+              <div className="content">
+                {/* <ShortcodeWrapper> */}
+                <MDXRenderer>{mdx.body}</MDXRenderer>
+                {/* </ShortcodeWrapper> */}
+              </div>
+              <Link to="/" className="button is-small">
+                &larr; Back Home
+              </Link>
             </div>
-            <Link to="/" className="button is-small">
-              &larr; Back Home
-            </Link>
+            <div className="column">
+              <Panel mdx={mdx} />
+            </div>
           </div>
-          <div className="column">
-            <Panel mdx={mdx} />
-          </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    </div>
   )
 }
 

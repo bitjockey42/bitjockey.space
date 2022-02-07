@@ -9,7 +9,7 @@ const TagsList = ({ allTags }) => {
           <Link
             key={i}
             to={`/tags/${tag.tag}`}
-            className="tag is-large is-round"
+            className="tag is-large is-primary"
           >
             {tag.tag} ({tag.totalCount})
           </Link>

@@ -12,7 +12,9 @@ export default function TagTemplate({ pageContext, data }) {
   return (
     <div>
       <Hero>
-        <Title>tag: <span className="tag is-large is-round">{tag}</span></Title>
+        <Title>
+          tag: <span className="tag is-large is-round">{tag}</span>
+        </Title>
         <Link to="/" className="button is-small is-info">
           &larr; Back Home
         </Link>
