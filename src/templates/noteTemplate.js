@@ -9,27 +9,26 @@ import NavBar from "../components/navbar"
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
   return (
-    <div>
-      <NavBar />
+    <section className="section">
       <Container>
-        <div className="columns">
-          <div className="column is-three-quarters">
-            <div className="content">
-              <Title>{mdx.frontmatter.title}</Title>
-              {/* <ShortcodeWrapper> */}
-              <MDXRenderer>{mdx.body}</MDXRenderer>
-              {/* </ShortcodeWrapper> */}
-              <Link to="/" className="button is-small">
-                &larr; Back Home
-              </Link>
+          <div className="columns">
+            <div className="column is-three-quarters">
+              <div className="content">
+                <Title>{mdx.frontmatter.title}</Title>
+                {/* <ShortcodeWrapper> */}
+                <MDXRenderer>{mdx.body}</MDXRenderer>
+                {/* </ShortcodeWrapper> */}
+                <Link to="/" className="button is-small">
+                  &larr; Back Home
+                </Link>
+              </div>
+            </div>
+            <div className="column">
+              <Panel mdx={mdx} />
             </div>
           </div>
-          <div className="column">
-            <Panel mdx={mdx} />
-          </div>
-        </div>
       </Container>
-    </div>
+    </section>
   )
 }
 
