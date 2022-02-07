@@ -1,17 +1,30 @@
 import React from "react"
 
+const MenuItem = ({ item }) => {
+  return (
+    <li>
+      <a href={`${item.url}`}>{item.title}</a>
+    </li>
+  )
+}
+
+const MenuList = ({ tableOfContents }) => {
+  // children
+  return (
+    <ul className="menu-list">
+      {tableOfContents.items.length > 0 &&
+        tableOfContents.items.map((item, i) => (
+          <MenuItem key={i} item={item} />
+        ))}
+    </ul>
+  ) 
+}
+
 const TableOfContents = ({ mdx }) => {
   return (
     <aside className="menu">
       <p className="menu-label">Table of Contents</p>
-      <ul className="menu-list">
-        {mdx.tableOfContents.items.length > 0 &&
-          mdx.tableOfContents.items.map((item, i) => (
-            <li key={i}>
-              <a href={`${item.url}`}>{item.title}</a>
-            </li>
-          ))}
-      </ul>
+      <MenuList tableOfContents={mdx.tableOfContents} />
     </aside>
   )
 }
