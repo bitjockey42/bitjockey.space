@@ -1,10 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import slugify from "slugify"
 
 const NotesLink = ({ edge }) => {
   return (
     <li>
-      <Link to={`/${edge.node.slug}`}>{edge.node.frontmatter.title}</Link>
+      <Link to={`/${slugify(edge.node.slug)}`}>
+        {edge.node.frontmatter.title}
+      </Link>
     </li>
   )
 }
