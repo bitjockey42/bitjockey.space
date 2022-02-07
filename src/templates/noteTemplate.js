@@ -22,7 +22,7 @@ export default function noteTemplate({ data }, props) {
           <div className="columns">
             {hasToc && (
               <div className="column is-2">
-                <TableOfContents toc={mdx.TableOfContents} />
+                <TableOfContents mdx={mdx} />
               </div>
             )}
             <div className="column">
