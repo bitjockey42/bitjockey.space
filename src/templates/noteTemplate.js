@@ -31,9 +31,6 @@ export default function noteTemplate({ data }, props) {
                 <MDXRenderer>{mdx.body}</MDXRenderer>
                 {/* </ShortcodeWrapper> */}
               </div>
-              <Link to="/" className="button is-small">
-                &larr; Back Home
-              </Link>
             </div>
             <div className="column is-3">
               <div className="card mb-5">
@@ -61,6 +58,9 @@ export default function noteTemplate({ data }, props) {
                 </div>
               </div>
               <Panel mdx={mdx} />
+              <Link to="/" className="button is-small">
+                &larr; Back Home
+              </Link>
             </div>
           </div>
         </Container>
