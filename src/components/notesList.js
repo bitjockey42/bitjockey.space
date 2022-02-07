@@ -1,12 +1,10 @@
 import React from "react"
-import { Link } from 'gatsby'
+import { Link } from "gatsby"
 
 const NotesLink = ({ edge }) => {
   return (
     <li>
-      <Link to={`/${edge.node.slug}`}>
-        {edge.node.frontmatter.title}
-      </Link>
+      <Link to={`/${edge.node.slug}`}>{edge.node.frontmatter.title}</Link>
     </li>
   )
 }
@@ -14,7 +12,9 @@ const NotesLink = ({ edge }) => {
 const NotesList = ({ edges }) => {
   return (
     <ul>
-      {edges.map((edge, i) => <NotesLink key={i} edge={edge} />)}
+      {edges.map((edge, i) => (
+        <NotesLink key={i} edge={edge} />
+      ))}
     </ul>
   )
 }

@@ -15,8 +15,8 @@ export default function TagTemplate({ pageContext, data }) {
 }
 
 export const query = graphql`
-  query($tag: String) {
-    allMdx(filter: {frontmatter: {tags: {in: [$tag]}}}) {
+  query ($tag: String) {
+    allMdx(filter: { frontmatter: { tags: { in: [$tag] } } }) {
       edges {
         node {
           slug

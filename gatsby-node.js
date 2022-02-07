@@ -2,17 +2,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-  {
-    allMdx {
-      nodes {
-        slug
-      }
-      allTags: group(field: frontmatter___tags) {
-        tag: fieldValue
-        totalCount
+    {
+      allMdx {
+        nodes {
+          slug
+        }
+        allTags: group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
+        }
       }
     }
-  }
   `)
 
   if (result.errors) {
@@ -26,15 +26,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const noteTemplate = require.resolve(`./src/templates/noteTemplate.js`)
   const tagTemplate = require.resolve(`./src/templates/tagTemplate.js`)
 
-  markdowns.forEach((node) => {
-      const { slug } = node;
+  markdowns.forEach(node => {
+    const { slug } = node
 
-      createPage({
-          path: `/${node.slug}`,
-          component: noteTemplate,
-          context: { slug },
-      });
-  });
+    createPage({
+      path: `/${node.slug}`,
+      component: noteTemplate,
+      context: { slug },
+    })
+  })
 
   tags.forEach(({ tag }) => {
     createPage({
@@ -42,7 +42,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: tagTemplate,
       context: {
         tag: tag,
-      }
+      },
     })
   })
 }

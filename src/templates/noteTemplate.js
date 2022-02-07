@@ -18,7 +18,7 @@ export default function noteTemplate({ data }, props) {
           <Link to="/">Back Home</Link>
         </div>
         <div className="column">
-          <Panel mdx={mdx}/>
+          <Panel mdx={mdx} />
         </div>
       </div>
     </Container>
@@ -26,7 +26,7 @@ export default function noteTemplate({ data }, props) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(slug: { eq: $slug }) {
       body
       inboundReferences {

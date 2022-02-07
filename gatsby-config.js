@@ -32,7 +32,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-obsidian",
             options: {
-              titleToURL: (title) => `/${slugify(title)}`,
+              titleToURL: title => `/${slugify(title)}`,
             },
           },
         ],
