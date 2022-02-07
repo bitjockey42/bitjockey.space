@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 const NotesLink = ({ edge }) => {
   return (
     <li>
-      <Link to={`/${edge.node.frontmatter.title}`}>
+      <Link to={`/${edge.node.slug}`}>
         {edge.node.frontmatter.title}
       </Link>
     </li>

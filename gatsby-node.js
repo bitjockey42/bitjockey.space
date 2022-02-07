@@ -40,7 +40,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       const { id, body } = node;
 
       createPage({
-          path: `/${node.parent.name}`,
+          path: `/${node.slug}`,
           component: noteTemplate,
           context: { id, body },
       });
