@@ -7,7 +7,7 @@ export default function categoryTemplate({ pageContext, data }) {
 
   const posts = edges.map((edge, i) => (
     <li key={i}>
-      <Link to={`/garden/${edge.node.slug}`}>
+      <Link to={`/${edge.node.slug}`}>
         {edge.node.frontmatter.title}
       </Link>
     </li>
