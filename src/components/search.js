@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 const SearchResults = ({ shouldShow }) => {
   const visibilityClass = shouldShow ? "is-active" : ""
@@ -21,15 +21,27 @@ const SearchResults = ({ shouldShow }) => {
   )
 }
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = () => {
+  const [showResults, setShowResults] = useState(false)
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log("onSubmit here")
+    setShowResults(true)
+  }
+
   return (
-    <form className="control" onSubmit={handleSearch}>
-      <input
-        className="input"
-        type="search"
-        placeholder="Search..."
-      />
-    </form>
+    <>
+      <form className="control" onSubmit={handleSearch}>
+        <input
+          className="input"
+          type="search"
+          placeholder="Search..."
+        />
+      </form>
+
+      <SearchResults shouldShow={showResults} />
+    </>
   )
 }
 
