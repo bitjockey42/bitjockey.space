@@ -6,12 +6,16 @@ import NotesList from "../components/notesList"
 import Container from "../components/container"
 import Title from "../components/title"
 import Header from "../components/header"
+import { SearchBar } from "../components/search"
 
 const Home = ({
   data: {
     allMdx: { edges, allTags },
+    localSearchPages: { index, store },
   },
 }) => {
+  console.log(store)
+
   return (
     <Layout>
       <Header>
@@ -20,6 +24,9 @@ const Home = ({
       </Header>
       <section className="section">
         <Container>
+          <div className="box">
+            <SearchBar index={index} store={store} />
+          </div>
           <div className="columns">
             <div className="column">
               <div className="card">
@@ -67,6 +74,10 @@ export const pageQuery = graphql`
         tag: fieldValue
         totalCount
       }
+    }
+    localSearchPages {
+      index
+      store
     }
   }
 `

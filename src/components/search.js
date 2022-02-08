@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { graphql } from "gatsby"
+import { useFlexSearch } from "react-use-flexsearch"
 
-const SearchResults = ({ shouldShow, handleClose }) => {
+const SearchResults = ({ results, shouldShow, handleClose }) => {
   const visibilityClass = shouldShow ? "is-active" : ""
 
   return (
@@ -9,7 +11,11 @@ const SearchResults = ({ shouldShow, handleClose }) => {
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">Search Results</p>
-          <button className="delete" aria-label="close" onClick={handleClose}></button>
+          <button
+            className="delete"
+            aria-label="close"
+            onClick={handleClose}
+          ></button>
         </header>
         <section className="modal-card-body">
           <ul>
@@ -21,30 +27,28 @@ const SearchResults = ({ shouldShow, handleClose }) => {
   )
 }
 
-const SearchBar = () => {
+const SearchBar = ({ index, store }) => {
+  const [query, setQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
+  const results = useFlexSearch(query, index, store)
 
-  const handleSearch = (e) => {
+  const handleSearch = e => {
     e.preventDefault()
-    console.log("onSubmit here")
     setShowResults(true)
   }
 
-  const handleClose = (e) => {
+  const handleClose = e => {
     setShowResults(false)
   }
 
   return (
     <>
       <form className="control" onSubmit={handleSearch}>
-        <input
-          className="input"
-          type="search"
-          placeholder="Search..."
-        />
+        <input className="input" type="search" placeholder="Search..." 
+          onChange={(e) => setQuery(e.target.value)} />
       </form>
 
-      <SearchResults shouldShow={showResults} handleClose={handleClose} />
+      <SearchResults results={results} shouldShow={showResults} handleClose={handleClose} />
     </>
   )
 }

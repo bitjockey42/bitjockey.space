@@ -8,11 +8,9 @@ const Header = ({ children }) => {
     <Hero>
       <HeroBody>
         <div className="columns">
-          <div className="column">
-            {children}
-          </div>
+          <div className="column">{children}</div>
           <div className="column is-2">
-            <SearchBar />
+            {/* <SearchBar /> */}
           </div>
         </div>
       </HeroBody>
