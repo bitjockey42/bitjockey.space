@@ -1,8 +1,10 @@
 import React from "react"
 
-const SearchResults = () => {
+const SearchResults = ({ shouldShow }) => {
+  const visibilityClass = shouldShow ? "is-active" : ""
+
   return (
-    <div id="searchResults" className="modal is-active">
+    <div id="searchResults" className={`modal ${visibilityClass}`}>
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">

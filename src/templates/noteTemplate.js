@@ -10,7 +10,7 @@ import TableOfContents from "../components/tableOfContents"
 import InfoCard from "../components/infoCard"
 import { SearchBar, SearchResults } from "../components/search"
 
-export default function noteTemplate({ data }, props) {
+export default function noteTemplate({ data }) {
   const { mdx } = data
   const hasToc = mdx.tableOfContents.items
 
@@ -32,7 +32,7 @@ export default function noteTemplate({ data }, props) {
         </Link>
       </Hero>
       <section className="section">
-        <SearchResults />
+        <SearchResults shouldShow={true} />
         <Container>
           <div className="columns">
             {hasToc && (
