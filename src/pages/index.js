@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Container from "../components/container"
-import Hero from "../components/hero"
-import Title from "../components/title"
 import TagsList from "../components/tagsList"
+import Container from "../components/container"
+import NavBar from "../components/navbar"
+import Title from "../components/title"
+import { Hero, HeroBody, HeroHead } from "../components/hero"
 
 const Home = ({
   data: {
@@ -14,8 +15,17 @@ const Home = ({
   return (
     <Layout>
       <Hero>
-        <Title>bitjockey's digital garden</Title>
-        <p>Welcome to my not-so-secret digital garden.</p>
+        <HeroHead>
+          <NavBar />
+        </HeroHead>
+        <HeroBody>
+          <div className="container has-text-centered">
+            <Title>digital garden</Title>
+            <h2 className="subtitle">
+              Welcome to my digital garden.
+            </h2>
+          </div>
+        </HeroBody>
       </Hero>
       <section className="section">
         <Container>

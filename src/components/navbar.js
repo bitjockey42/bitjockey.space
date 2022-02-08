@@ -1,24 +1,27 @@
 import React from "react"
+import Container from "./container"
 
 const NavBar = () => {
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
-        <a className="navbar-item" href="/">
-          bitjockey.space
-        </a>
-
-        <a
-          role="button"
-          className="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
+    <nav className="navbar">
+      <Container>
+        <div className="navbar-brand">
+          <span className="navbar-burger burger" data-target="mainNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="mainNav" className="navbar-menu">
+          <div className="navbar-end">
+            <div className="navbar-item field">
+              <p className="control">
+                <input className="input" type="search" placeholder="Search..." />
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
     </nav>
   )
 }
