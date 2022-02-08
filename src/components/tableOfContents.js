@@ -1,38 +1,31 @@
 import React from "react"
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ data }) => {
   return (
     <li>
-      <a href={`${item.url}`}>{item.title}</a>
+      <a href={`${data.url}`}>{data.title}</a>
     </li>
   )
 }
 
-const MenuList = ({ items }) => {
-  // children
+const MenuList = ({ data }) => {
   return (
     <ul className="menu-list">
-      {items.length > 0 &&
-        items.map((item, i) => (
-          <MenuItem key={i} item={item} />
-        ))}
+      {data.items && data.items.length > 0 ?
+        data.items.map((item, i) => (
+          <MenuList key={i} data={item} />
+        )) :
+          <MenuItem data={data} />
+        }
     </ul>
   ) 
-}
-
-const TableOfContentsTree = ({ data }) => {
-  if (data.items.length > 0) {
-    return <><p>Placeholder</p></>
-  } else {
-    return <MenuList items={data.items} />
-  }
 }
 
 const TableOfContents = ({ mdx }) => {
   return (
     <aside className="menu">
       <p className="menu-label">Table of Contents</p>
-      <TableOfContentsTree data={mdx.tableOfContents} />
+      <MenuList data={mdx.tableOfContents} />
     </aside>
   )
 }
