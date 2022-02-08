@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
@@ -6,12 +6,21 @@ import NotesList from "../components/notesList"
 import Container from "../components/container"
 import Title from "../components/title"
 import { Hero, HeroBody } from "../components/hero"
+import { SearchBar, SearchResults } from "../components/search"
 
 const Home = ({
   data: {
     allMdx: { edges, allTags },
   },
 }) => {
+  const [showResults, setShowResults] = useState(false)
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log("onSubmit here")
+    setShowResults(true)
+  }
+
   return (
     <Layout>
       <Hero>
@@ -19,11 +28,13 @@ const Home = ({
           <div className="container has-text-centered">
             <Title>digital garden</Title>
             <h2 className="subtitle">Welcome to my digital garden.</h2>
+            <SearchBar handleSearch={handleSearch} />
           </div>
         </HeroBody>
       </Hero>
       <section className="section">
         <Container>
+          <SearchResults shouldShow={showResults} />
           <div className="columns">
             <div className="column">
               <div className="card">
