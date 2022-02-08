@@ -24,7 +24,7 @@ export default function TagTemplate({ pageContext, data }) {
       </Hero>
       <section className="section">
         <Container>
-          <NotesList edges={edges} />
+          <NotesList edges={edges} showBox={true} />
         </Container>
       </section>
     </Layout>

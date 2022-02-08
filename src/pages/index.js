@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
+import NotesList from "../components/notesList"
 import Container from "../components/container"
 import Title from "../components/title"
 import { Hero, HeroBody } from "../components/hero"
@@ -24,6 +25,16 @@ const Home = ({
       <section className="section">
         <Container>
           <div className="columns">
+            <div className="column">
+              <div className="card">
+                <header className="card-header">
+                  <p className="card-header-title is-uppercase">Notes</p>
+                </header>
+                <div className="card-content">
+                  <NotesList edges={edges} />
+                </div>
+              </div>
+            </div>
             <div className="column">
               <div className="card">
                 <header className="card-header">
