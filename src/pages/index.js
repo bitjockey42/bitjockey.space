@@ -3,9 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
 import Container from "../components/container"
-import NavBar from "../components/navbar"
 import Title from "../components/title"
-import { Hero, HeroBody, HeroHead } from "../components/hero"
+import { Hero, HeroBody } from "../components/hero"
 
 const Home = ({
   data: {

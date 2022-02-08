@@ -17,7 +17,20 @@ export default function noteTemplate({ data }, props) {
     <Layout>
       <Hero>
         <HeroBody>
-          <Title>{mdx.frontmatter.title}</Title>
+          <div className="columns">
+            <div className="column">
+              <Title>{mdx.frontmatter.title}</Title>
+            </div>
+            <div className="column is-2">
+              <p className="control">
+                <input
+                  className="input"
+                  type="search"
+                  placeholder="Search..."
+                />
+              </p>
+            </div>
+          </div>
         </HeroBody>
         <Link to="/" className="button is-small is-info">
           &larr; Back Home
