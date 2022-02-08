@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 
 const SearchResults = ({ shouldShow }) => {
-  const visibilityClass = shouldShow ? "is-active" : ""
+  const visibilityClass = shouldShow ? "box" : ""
 
   return (
     <div id="searchResults" className={`modal ${visibilityClass}`}>
@@ -22,14 +22,19 @@ const SearchResults = ({ shouldShow }) => {
 }
 
 const SearchBar = () => {
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    console.log("onSubmit")
+  }
+
   return (
-    <p className="control">
+    <form className="control" onSubmit={handleOnSubmit}>
       <input
         className="input"
         type="search"
         placeholder="Search..."
       />
-    </p>
+    </form>
   )
 }
 
