@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
 
-const SearchResults = ({ results, shouldShow, handleClose }) => {
+const SearchResults = ({ query, results, shouldShow, handleClose }) => {
   const visibilityClass = shouldShow ? "is-active" : ""
 
   return (
@@ -10,7 +10,7 @@ const SearchResults = ({ results, shouldShow, handleClose }) => {
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Search Results</p>
+          <p className="modal-card-title">Search Results for "{query}"</p>
           <button
             className="delete"
             aria-label="close"
@@ -19,7 +19,13 @@ const SearchResults = ({ results, shouldShow, handleClose }) => {
         </header>
         <section className="modal-card-body">
           <ul>
-            <li>Test</li>
+            {results.map((result, i) => (
+              <li key={i}>
+                <Link to={`/${result.slug}`}>
+                  {result.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
       </div>
@@ -48,7 +54,7 @@ const SearchBar = ({ index, store }) => {
           onChange={(e) => setQuery(e.target.value)} />
       </form>
 
-      <SearchResults results={results} shouldShow={showResults} handleClose={handleClose} />
+      <SearchResults query={query} results={results} shouldShow={showResults} handleClose={handleClose} />
     </>
   )
 }
