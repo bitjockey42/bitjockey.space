@@ -4,6 +4,9 @@ const MenuItem = ({ data }) => {
   return (
     <li>
       <a href={`${data.url}`}>{data.title}</a>
+      {data.items && data.items.map((item, i) => (
+        <MenuList key={i} data={item} />
+      ))}
     </li>
   )
 }
@@ -11,12 +14,9 @@ const MenuItem = ({ data }) => {
 const MenuList = ({ data }) => {
   return (
     <ul className="menu-list">
-      {data.items && data.items.length > 0 ?
-        data.items.map((item, i) => (
-          <MenuList key={i} data={item} />
-        )) :
-          <MenuItem data={data} />
-        }
+      {data.items && data.items.map((item, i) => (
+        <MenuItem key={i} data={item} />
+      ))}
     </ul>
   ) 
 }
