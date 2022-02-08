@@ -4,7 +4,7 @@ const MenuItem = ({ data }) => {
   return (
     <li>
       <a href={`${data.url}`}>{data.title}</a>
-      {data.items && data.items.length > 0 && <SubMenuList data={data} />} 
+      {data.items && data.items.length > 0 && <SubMenuList data={data} />}
     </li>
   )
 }
@@ -20,13 +20,15 @@ const SubMenuList = ({ data }) => {
 }
 
 const MenuList = ({ data }) => {
-  const ulClassName = !data.title ? "menu-list": ""
+  const ulClassName = !data.title ? "menu-list" : ""
 
   return (
     <ul className={ulClassName}>
-      {data.items && data.items.length > 0 ?
-      <SubMenuList data={data} /> :
-      <MenuItem data={data} />} 
+      {data.items && data.items.length > 0 ? (
+        <SubMenuList data={data} />
+      ) : (
+        <MenuItem data={data} />
+      )}
     </ul>
   )
 }

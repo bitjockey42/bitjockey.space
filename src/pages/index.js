@@ -15,15 +15,10 @@ const Home = ({
   return (
     <Layout>
       <Hero>
-        <HeroHead>
-          <NavBar />
-        </HeroHead>
         <HeroBody>
           <div className="container has-text-centered">
             <Title>digital garden</Title>
-            <h2 className="subtitle">
-              Welcome to my digital garden.
-            </h2>
+            <h2 className="subtitle">Welcome to my digital garden.</h2>
           </div>
         </HeroBody>
       </Hero>

@@ -16,7 +16,11 @@ const NavBar = () => {
           <div className="navbar-end">
             <div className="navbar-item field">
               <p className="control">
-                <input className="input" type="search" placeholder="Search..." />
+                <input
+                  className="input"
+                  type="search"
+                  placeholder="Search..."
+                />
               </p>
             </div>
           </div>

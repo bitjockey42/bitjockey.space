@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
-import Hero from "../components/hero"
+import { Hero, HeroBody, HeroHead } from "../components/hero"
 import TableOfContents from "../components/tableOfContents"
 import InfoCard from "../components/infoCard"
 
@@ -16,7 +16,12 @@ export default function noteTemplate({ data }, props) {
   return (
     <Layout>
       <Hero>
-        <Title>{mdx.frontmatter.title}</Title>
+        <HeroBody>
+          <Title>{mdx.frontmatter.title}</Title>
+        </HeroBody>
+        <Link to="/" className="button is-small is-info">
+          &larr; Back Home
+        </Link>
       </Hero>
       <section className="section">
         <Container>
@@ -36,9 +41,6 @@ export default function noteTemplate({ data }, props) {
             <div className="column is-3">
               <Panel mdx={mdx} />
               <InfoCard mdx={mdx} />
-              <Link to="/" className="button is-small">
-                &larr; Back Home
-              </Link>
             </div>
           </div>
         </Container>
