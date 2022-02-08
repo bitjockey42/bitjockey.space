@@ -2,9 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import slugify from "slugify"
 
-const NotesLink = ({ edge }) => {
+const NotesLink = ({ edge, showBox }) => {
+  const boxClass = showBox ? "box" : "mb-5"
+
   return (
-    <div className="box">
+    <div className={boxClass}>
       <h1 className="title is-5">
         <Link to={`/${slugify(edge.node.slug)}`}>
           {edge.node.frontmatter.title}
@@ -15,11 +17,11 @@ const NotesLink = ({ edge }) => {
   )
 }
 
-const NotesList = ({ edges }) => {
+const NotesList = ({ edges, showBox }) => {
   return (
     <>
       {edges.map((edge, i) => (
-        <NotesLink key={i} edge={edge} />
+        <NotesLink key={i} edge={edge} showBox={showBox} />
       ))}
     </>
   )

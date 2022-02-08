@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
-import Hero from "../components/hero"
+import Header from "../components/header"
 import NotesList from "../components/notesList"
 
 export default function TagTemplate({ pageContext, data }) {
@@ -12,17 +12,14 @@ export default function TagTemplate({ pageContext, data }) {
 
   return (
     <Layout>
-      <Hero>
+      <Header>
         <Title>
           tag: <span className="tag is-large is-round">{tag}</span>
         </Title>
-        <Link to="/" className="button is-small is-info">
-          &larr; Back Home
-        </Link>
-      </Hero>
+      </Header>
       <section className="section">
         <Container>
-          <NotesList edges={edges} />
+          <NotesList edges={edges} showBox={true} />
         </Container>
       </section>
     </Layout>

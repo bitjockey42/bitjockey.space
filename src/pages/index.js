@@ -1,25 +1,43 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Container from "../components/container"
-import Hero from "../components/hero"
-import Title from "../components/title"
 import TagsList from "../components/tagsList"
+import NotesList from "../components/notesList"
+import Container from "../components/container"
+import Title from "../components/title"
+import Header from "../components/header"
+import { SearchBar } from "../components/search"
 
 const Home = ({
   data: {
     allMdx: { edges, allTags },
+    localSearchPages: { index, store },
   },
 }) => {
+  console.log(store)
+
   return (
     <Layout>
-      <Hero>
-        <Title>bitjockey's digital garden</Title>
-        <p>Welcome to my not-so-secret digital garden.</p>
-      </Hero>
+      <Header>
+        <Title>digital garden</Title>
+        <h2 className="subtitle">Welcome to my twisted mind</h2>
+      </Header>
       <section className="section">
         <Container>
+          <div className="box">
+            <SearchBar index={index} store={store} />
+          </div>
           <div className="columns">
+            <div className="column">
+              <div className="card">
+                <header className="card-header">
+                  <p className="card-header-title is-uppercase">Notes</p>
+                </header>
+                <div className="card-content">
+                  <NotesList edges={edges} />
+                </div>
+              </div>
+            </div>
             <div className="column">
               <div className="card">
                 <header className="card-header">
@@ -56,6 +74,10 @@ export const pageQuery = graphql`
         tag: fieldValue
         totalCount
       }
+    }
+    localSearchPages {
+      index
+      store
     }
   }
 `
