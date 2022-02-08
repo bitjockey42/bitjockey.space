@@ -5,9 +5,10 @@ import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
-import { Hero, HeroBody, HeroHead } from "../components/hero"
+import { Hero, HeroBody } from "../components/hero"
 import TableOfContents from "../components/tableOfContents"
 import InfoCard from "../components/infoCard"
+import Search from "../components/search"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
@@ -22,13 +23,7 @@ export default function noteTemplate({ data }, props) {
               <Title>{mdx.frontmatter.title}</Title>
             </div>
             <div className="column is-2">
-              <p className="control">
-                <input
-                  className="input"
-                  type="search"
-                  placeholder="Search..."
-                />
-              </p>
+              <Search />
             </div>
           </div>
         </HeroBody>
