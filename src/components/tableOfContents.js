@@ -11,9 +11,10 @@ const MenuItem = ({ data }) => {
   )
 }
 
-const MenuList = ({ data }) => {
+const MenuList = ({ data, className }) => {
   return (
-    <ul className="menu-list">
+    <ul className={className}>
+      {data.title && <MenuItem data={data} />}
       {data.items && data.items.map((item, i) => (
         <MenuItem key={i} data={item} />
       ))}
@@ -25,7 +26,7 @@ const TableOfContents = ({ mdx }) => {
   return (
     <aside className="menu">
       <p className="menu-label">Table of Contents</p>
-      <MenuList data={mdx.tableOfContents} />
+      <MenuList className="menu-list" data={mdx.tableOfContents} />
     </aside>
   )
 }
