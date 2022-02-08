@@ -1,6 +1,25 @@
 import React from "react"
 
-const Search = () => {
+const SearchResults = () => {
+  return (
+    <div id="searchResults" className="modal is-active">
+      <div className="modal-background"></div>
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title">Search Results</p>
+          <button className="delete" aria-label="close"></button>
+        </header>
+        <section className="modal-card-body">
+          <ul>
+            <li>Test</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  )
+}
+
+const SearchBar = () => {
   return (
     <p className="control">
       <input
@@ -12,4 +31,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export { SearchBar, SearchResults }

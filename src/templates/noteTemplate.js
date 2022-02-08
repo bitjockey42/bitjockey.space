@@ -8,7 +8,7 @@ import Panel from "../components/panel"
 import { Hero, HeroBody } from "../components/hero"
 import TableOfContents from "../components/tableOfContents"
 import InfoCard from "../components/infoCard"
-import Search from "../components/search"
+import { SearchBar, SearchResults } from "../components/search"
 
 export default function noteTemplate({ data }, props) {
   const { mdx } = data
@@ -23,7 +23,7 @@ export default function noteTemplate({ data }, props) {
               <Title>{mdx.frontmatter.title}</Title>
             </div>
             <div className="column is-2">
-              <Search />
+              <SearchBar />
             </div>
           </div>
         </HeroBody>
@@ -32,6 +32,7 @@ export default function noteTemplate({ data }, props) {
         </Link>
       </Hero>
       <section className="section">
+        <SearchResults />
         <Container>
           <div className="columns">
             {hasToc && (
