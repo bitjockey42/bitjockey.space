@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const SearchResults = ({ shouldShow }) => {
+const SearchResults = ({ shouldShow, handleClose }) => {
   const visibilityClass = shouldShow ? "is-active" : ""
 
   return (
@@ -9,7 +9,7 @@ const SearchResults = ({ shouldShow }) => {
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">Search Results</p>
-          <button className="delete" aria-label="close"></button>
+          <button className="delete" aria-label="close" onClick={handleClose}></button>
         </header>
         <section className="modal-card-body">
           <ul>
@@ -30,6 +30,10 @@ const SearchBar = () => {
     setShowResults(true)
   }
 
+  const handleClose = (e) => {
+    setShowResults(false)
+  }
+
   return (
     <>
       <form className="control" onSubmit={handleSearch}>
@@ -40,7 +44,7 @@ const SearchBar = () => {
         />
       </form>
 
-      <SearchResults shouldShow={showResults} />
+      <SearchResults shouldShow={showResults} handleClose={handleClose} />
     </>
   )
 }
