@@ -5,10 +5,9 @@ import Layout from "../components/layout"
 import Container from "../components/container"
 import Title from "../components/title"
 import Panel from "../components/panel"
-import { Hero, HeroBody } from "../components/hero"
 import TableOfContents from "../components/tableOfContents"
 import InfoCard from "../components/infoCard"
-import { SearchBar, SearchResults } from "../components/search"
+import Header from "../components/header"
 
 export default function noteTemplate({ data }) {
   const { mdx } = data
@@ -16,23 +15,10 @@ export default function noteTemplate({ data }) {
 
   return (
     <Layout>
-      <Hero>
-        <HeroBody>
-          <div className="columns">
-            <div className="column">
-              <Title>{mdx.frontmatter.title}</Title>
-            </div>
-            <div className="column is-2">
-              <SearchBar />
-            </div>
-          </div>
-        </HeroBody>
-        <Link to="/" className="button is-small is-info">
-          &larr; Back Home
-        </Link>
-      </Hero>
+      <Header>
+        <Title>{mdx.frontmatter.title}</Title>
+      </Header>
       <section className="section">
-        <SearchResults shouldShow={true} />
         <Container>
           <div className="columns">
             {hasToc && (

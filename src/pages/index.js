@@ -5,8 +5,7 @@ import TagsList from "../components/tagsList"
 import NotesList from "../components/notesList"
 import Container from "../components/container"
 import Title from "../components/title"
-import { Hero, HeroBody } from "../components/hero"
-import { SearchBar } from "../components/search"
+import Header from "../components/header"
 
 const Home = ({
   data: {
@@ -15,15 +14,10 @@ const Home = ({
 }) => {
   return (
     <Layout>
-      <Hero>
-        <HeroBody>
-          <div className="container has-text-centered">
-            <Title>digital garden</Title>
-            <h2 className="subtitle">Welcome to my digital garden.</h2>
-            <SearchBar />
-          </div>
-        </HeroBody>
-      </Hero>
+      <Header>
+        <Title>digital garden</Title>
+        <h2 className="subtitle">Welcome to my twisted mind</h2>
+      </Header>
       <section className="section">
         <Container>
           <div className="columns">
