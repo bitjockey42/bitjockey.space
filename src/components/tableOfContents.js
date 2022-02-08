@@ -4,29 +4,38 @@ const MenuItem = ({ data }) => {
   return (
     <li>
       <a href={`${data.url}`}>{data.title}</a>
-      {data.items && data.items.map((item, i) => (
-        <MenuList key={i} data={item} />
-      ))}
+      {data.items && data.items.length > 0 && <SubMenuList data={data} />} 
     </li>
   )
 }
 
-const MenuList = ({ data, className }) => {
+const SubMenuList = ({ data }) => {
   return (
-    <ul className={className}>
-      {data.title && <MenuItem data={data} />}
-      {data.items && data.items.map((item, i) => (
+    <ul>
+      {data.items.map((item, i) => (
         <MenuItem key={i} data={item} />
       ))}
     </ul>
-  ) 
+  )
+}
+
+const MenuList = ({ data }) => {
+  const ulClassName = !data.title ? "menu-list": ""
+
+  return (
+    <ul className={ulClassName}>
+      {data.items && data.items.length > 0 ?
+      <SubMenuList data={data} /> :
+      <MenuItem data={data} />} 
+    </ul>
+  )
 }
 
 const TableOfContents = ({ mdx }) => {
   return (
     <aside className="menu">
       <p className="menu-label">Table of Contents</p>
-      <MenuList className="menu-list" data={mdx.tableOfContents} />
+      <MenuList data={mdx.tableOfContents} />
     </aside>
   )
 }
