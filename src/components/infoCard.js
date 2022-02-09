@@ -18,7 +18,7 @@ const InfoCard = ({ mdx }) => {
             <span className="is-uppercase has-text-weight-semibold">
               <i className="fa fa-leaf" aria-hidden="true"></i> stage
             </span>
-            <span className="tag is-pulled-right">seedling</span>
+            <span className="tag is-pulled-right">{mdx.frontmatter.stage}</span>
           </p>
         </div>
       </div>

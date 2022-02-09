@@ -9,4 +9,4 @@ Obsidian is markdown-based knowledge base that functions like a wiki . The [offi
 
 Knowledge bases are organized into different vaults, so if you need knowledge bases for different contexts, you'd create a vault for each one. I have a vault for this [[Digital Garden]] and another one for work.
 
-Wiki links look like `[[this]]`  in Obsidian, so it's fairly similar to wiki-syntax.
+Wiki links look like `[[this]]` in Obsidian, so it's fairly similar to wiki-syntax.

@@ -1,14 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Hero, HeroBody } from "./hero"
-import { SearchBar } from "./search"
 
 const Header = ({ children, showHome }) => {
   return (
     <Hero>
-      <HeroBody>
-        {children}
-      </HeroBody>
+      <HeroBody>{children}</HeroBody>
       {showHome && (
         <Link to="/" className="button is-small is-info">
           &larr; Back Home

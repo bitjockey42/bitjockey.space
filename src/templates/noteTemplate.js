@@ -61,6 +61,7 @@ export const query = graphql`
         title
         date
         tags
+        stage
       }
       tableOfContents
     }
