@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
@@ -15,6 +16,12 @@ export default function noteTemplate({ data }) {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          bitjockey's digital garden - {mdx.frontmatter.title}
+        </title>
+      </Helmet>
       <Header showHome={true}>
         <Title>{mdx.frontmatter.title}</Title>
       </Header>

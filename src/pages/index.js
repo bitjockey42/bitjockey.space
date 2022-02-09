@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
@@ -14,10 +15,12 @@ const Home = ({
     localSearchPages: { index, store },
   },
 }) => {
-  console.log(store)
-
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>bitjockey's digital garden - Home</title>
+      </Helmet>
       <Header showHome={false}>
         <Title>digital garden</Title>
         <h2 className="subtitle">Welcome to my twisted mind</h2>

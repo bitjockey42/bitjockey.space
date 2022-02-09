@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Container from "../components/container"
@@ -12,7 +13,13 @@ export default function TagTemplate({ pageContext, data }) {
 
   return (
     <Layout>
-      <Header>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          garden - tag: {tag}
+        </title>
+      </Helmet>
+      <Header showHome={true}>
         <Title>
           tag: <span className="tag is-large is-round">{tag}</span>
         </Title>
