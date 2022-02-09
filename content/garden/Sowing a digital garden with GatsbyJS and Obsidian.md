@@ -6,9 +6,11 @@ tags: ["how-to", "development", "garden"]
 
 # Overview
 
-In this I will describe the steps I took to create a [[Digital Garden|digital garden]].
+In this I will describe the steps I took to create a [[Digital Garden]]
 
 # Setup Obsidian
+
+[[Obsidian]]
 
 ## Obsidian Desktop
 

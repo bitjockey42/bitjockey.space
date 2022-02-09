@@ -9,7 +9,7 @@ const HeroBody = ({ children }) => {
 }
 
 const Hero = ({ children }) => {
-  return <section className="hero is-small is-link">{children}</section>
+  return <section className="hero is-small is-link has-text-centered">{children}</section>
 }
 
 export { Hero, HeroHead, HeroBody }

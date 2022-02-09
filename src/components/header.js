@@ -7,10 +7,7 @@ const Header = ({ children, showHome }) => {
   return (
     <Hero>
       <HeroBody>
-        <div className="columns">
-          <div className="column">{children}</div>
-          <div className="column is-2">{/* <SearchBar /> */}</div>
-        </div>
+        {children}
       </HeroBody>
       {showHome && (
         <Link to="/" className="button is-small is-info">
