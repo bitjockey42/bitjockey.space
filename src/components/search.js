@@ -20,7 +20,7 @@ const SearchResults = ({ query, results, shouldShow, handleClose }) => {
         <section className="modal-card-body">
           <ul>
             {results.map((result, i) => (
-              <li key={i}>
+              <li key={i} className="mb-5">
                 <Link to={`/${result.slug}`}>{result.title}</Link> <br />
                 <span>{result.excerpt}</span>
               </li>
