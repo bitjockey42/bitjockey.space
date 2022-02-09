@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import "./layout.scss"
+import "../assets/css/layout.scss"
 
 export default function Layout({ title, children }) {
   return (

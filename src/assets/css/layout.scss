@@ -6,3 +6,8 @@ $title-color: #0077ff;
 @import "~bulma/bulma.sass";
 @import "~bulmaswatch/lumen/bulmaswatch.scss";
 @import "~fork-awesome/css/fork-awesome.css";
+@import "./typography.css";
+
+body {
+  font-family: "Merriweather"
+}
