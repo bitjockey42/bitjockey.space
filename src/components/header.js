@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { Hero, HeroBody } from "./hero"
 import { SearchBar } from "./search"
 
-const Header = ({ children }) => {
+const Header = ({ children, showHome }) => {
   return (
     <Hero>
       <HeroBody>
@@ -14,9 +14,9 @@ const Header = ({ children }) => {
           </div>
         </div>
       </HeroBody>
-      <Link to="/" className="button is-small is-info">
+      {showHome && <Link to="/" className="button is-small is-info">
         &larr; Back Home
-      </Link>
+      </Link>}
     </Hero>
   )
 }

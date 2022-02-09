@@ -15,7 +15,7 @@ export default function noteTemplate({ data }) {
 
   return (
     <Layout>
-      <Header>
+      <Header showHome={true}>
         <Title>{mdx.frontmatter.title}</Title>
       </Header>
       <section className="section">

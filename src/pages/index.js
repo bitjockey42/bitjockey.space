@@ -18,7 +18,7 @@ const Home = ({
 
   return (
     <Layout>
-      <Header>
+      <Header showHome={false}>
         <Title>digital garden</Title>
         <h2 className="subtitle">Welcome to my twisted mind</h2>
       </Header>
