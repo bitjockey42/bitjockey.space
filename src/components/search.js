@@ -21,9 +21,7 @@ const SearchResults = ({ query, results, shouldShow, handleClose }) => {
           <ul>
             {results.map((result, i) => (
               <li key={i}>
-                <Link to={`/${result.slug}`}>
-                  {result.title}
-                </Link>
+                <Link to={`/${result.slug}`}>{result.title}</Link>
               </li>
             ))}
           </ul>
@@ -50,11 +48,20 @@ const SearchBar = ({ index, store }) => {
   return (
     <>
       <form className="control" onSubmit={handleSearch}>
-        <input className="input" type="search" placeholder="Search..." 
-          onChange={(e) => setQuery(e.target.value)} />
+        <input
+          className="input"
+          type="search"
+          placeholder="Search..."
+          onChange={e => setQuery(e.target.value)}
+        />
       </form>
 
-      <SearchResults query={query} results={results} shouldShow={showResults} handleClose={handleClose} />
+      <SearchResults
+        query={query}
+        results={results}
+        shouldShow={showResults}
+        handleClose={handleClose}
+      />
     </>
   )
 }

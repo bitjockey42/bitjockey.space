@@ -9,14 +9,14 @@ const Header = ({ children, showHome }) => {
       <HeroBody>
         <div className="columns">
           <div className="column">{children}</div>
-          <div className="column is-2">
-            {/* <SearchBar /> */}
-          </div>
+          <div className="column is-2">{/* <SearchBar /> */}</div>
         </div>
       </HeroBody>
-      {showHome && <Link to="/" className="button is-small is-info">
-        &larr; Back Home
-      </Link>}
+      {showHome && (
+        <Link to="/" className="button is-small is-info">
+          &larr; Back Home
+        </Link>
+      )}
     </Hero>
   )
 }

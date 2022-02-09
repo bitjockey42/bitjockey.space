@@ -1,5 +1,4 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
@@ -16,11 +15,7 @@ const Home = ({
   },
 }) => {
   return (
-    <Layout>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>bitjockey's digital garden - Home</title>
-      </Helmet>
+    <Layout title={"Home"}>
       <Header showHome={false}>
         <Title>digital garden</Title>
         <h2 className="subtitle">Welcome to my twisted mind</h2>
