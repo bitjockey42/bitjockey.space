@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
@@ -14,11 +14,9 @@ const Home = ({
     localSearchPages: { index, store },
   },
 }) => {
-  console.log(store)
-
   return (
-    <Layout>
-      <Header>
+    <Layout title={"Home"}>
+      <Header showHome={false}>
         <Title>digital garden</Title>
         <h2 className="subtitle">Welcome to my twisted mind</h2>
       </Header>

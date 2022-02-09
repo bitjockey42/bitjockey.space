@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import Container from "../components/container"
@@ -14,8 +15,8 @@ export default function noteTemplate({ data }) {
   const hasToc = mdx.tableOfContents.items
 
   return (
-    <Layout>
-      <Header>
+    <Layout title={mdx.frontmatter.title}>
+      <Header showHome={true}>
         <Title>{mdx.frontmatter.title}</Title>
       </Header>
       <section className="section">
@@ -60,6 +61,7 @@ export const query = graphql`
         title
         date
         tags
+        stage
       }
       tableOfContents
     }

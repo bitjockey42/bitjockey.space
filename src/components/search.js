@@ -20,10 +20,9 @@ const SearchResults = ({ query, results, shouldShow, handleClose }) => {
         <section className="modal-card-body">
           <ul>
             {results.map((result, i) => (
-              <li key={i}>
-                <Link to={`/${result.slug}`}>
-                  {result.title}
-                </Link>
+              <li key={i} className="mb-5">
+                <Link to={`/${result.slug}`}>{result.title}</Link> <br />
+                <span>{result.excerpt}</span>
               </li>
             ))}
           </ul>
@@ -50,11 +49,20 @@ const SearchBar = ({ index, store }) => {
   return (
     <>
       <form className="control" onSubmit={handleSearch}>
-        <input className="input" type="search" placeholder="Search..." 
-          onChange={(e) => setQuery(e.target.value)} />
+        <input
+          className="input"
+          type="search"
+          placeholder="Search..."
+          onChange={e => setQuery(e.target.value)}
+        />
       </form>
 
-      <SearchResults query={query} results={results} shouldShow={showResults} handleClose={handleClose} />
+      <SearchResults
+        query={query}
+        results={results}
+        shouldShow={showResults}
+        handleClose={handleClose}
+      />
     </>
   )
 }

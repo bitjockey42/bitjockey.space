@@ -11,8 +11,8 @@ export default function TagTemplate({ pageContext, data }) {
   const { edges } = data.allMdx
 
   return (
-    <Layout>
-      <Header>
+    <Layout title={`tag: ${tag}`}>
+      <Header showHome={true}>
         <Title>
           tag: <span className="tag is-large is-round">{tag}</span>
         </Title>
