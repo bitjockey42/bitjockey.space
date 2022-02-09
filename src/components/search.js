@@ -21,7 +21,8 @@ const SearchResults = ({ query, results, shouldShow, handleClose }) => {
           <ul>
             {results.map((result, i) => (
               <li key={i}>
-                <Link to={`/${result.slug}`}>{result.title}</Link>
+                <Link to={`/${result.slug}`}>{result.title}</Link> <br />
+                <span>{result.excerpt}</span>
               </li>
             ))}
           </ul>

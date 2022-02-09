@@ -7,6 +7,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allMdx(sort: { order: ASC, fields: frontmatter___tags }) {
         nodes {
           slug
+          excerpt
         }
         allTags: group(field: frontmatter___tags) {
           tag: fieldValue
