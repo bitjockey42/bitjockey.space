@@ -12,7 +12,7 @@ const InfoCard = ({ mdx }) => {
             <span className="is-uppercase has-text-weight-semibold">
               <i className="fa fa-calendar-o" aria-hidden="true"></i> created
             </span>
-            <span className="is-pulled-right">{mdx.frontmatter.date}</span>
+            <span className="is-pulled-right">{mdx.frontmatter.created}</span>
           </p>
           <p>
             <span className="is-uppercase has-text-weight-semibold">

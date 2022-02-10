@@ -7,7 +7,7 @@ export default function Layout({ title, children }) {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{`digital garden - ${title}`}</title>
+        <title>{`aj's digital garden - ${title}`}</title>
       </Helmet>
       {children}
     </div>

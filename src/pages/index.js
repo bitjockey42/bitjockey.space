@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagsList from "../components/tagsList"
 import NotesList from "../components/notesList"
@@ -17,8 +17,20 @@ const Home = ({
   return (
     <Layout title={"Home"}>
       <Header showHome={false}>
-        <Title>digital garden</Title>
-        <h2 className="subtitle">Welcome to my twisted mind</h2>
+        <Title>aj's digital garden</Title>
+        <h2 className="subtitle">
+          Welcome to my not so secret{" "}
+          <Link to="/Digital-Garden">digital garden</Link>.
+        </h2>
+        <p>
+          This is a space for me to share my learnings and my thoughts on a
+          variety of topics.
+        </p>
+        <p>
+          I like to pretend sometimes that I'm a writer, so take a look at my{" "}
+          <Link to="/tags/article">articles</Link> if you would like to indulge
+          me.
+        </p>
       </Header>
       <section className="section">
         <Container>
@@ -64,8 +76,9 @@ export const pageQuery = graphql`
           slug
           frontmatter {
             title
-            date
+            created
           }
+          excerpt
         }
       }
       allTags: group(field: frontmatter___tags) {

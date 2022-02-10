@@ -35,7 +35,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
-            date
+            created
           }
         }
       }
