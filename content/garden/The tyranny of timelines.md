@@ -1,6 +1,7 @@
 ---
 title: "The tyranny of timelines"
 created: 2022-02-08T23:48
+updated:
 tags: ["article"]
 stage: "budding"
 ---

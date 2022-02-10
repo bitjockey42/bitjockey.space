@@ -60,6 +60,7 @@ export const query = graphql`
       frontmatter {
         title
         created
+        updated
         tags
         stage
       }

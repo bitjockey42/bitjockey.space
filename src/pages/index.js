@@ -77,6 +77,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             created
+            updated
           }
           excerpt
         }

@@ -1,6 +1,7 @@
 ---
 title: "Digital Garden"
 created: 2022-02-08T22:24
+updated: 2022-02-10
 tags: ["garden", "definition"]
 stage: "seedling"
 ---

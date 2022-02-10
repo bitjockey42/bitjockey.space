@@ -1,6 +1,7 @@
 ---
 title: "Obsidian"
 created: 2022-02-08T22:23
+updated: 2022-02-10
 tags: ["apps"]
 stage: "seedling"
 ---

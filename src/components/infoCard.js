@@ -10,6 +10,12 @@ const InfoCard = ({ mdx }) => {
         <div className="content">
           <p>
             <span className="is-uppercase has-text-weight-semibold">
+              <i className="fa fa-calendar" aria-hidden="true"></i> updated
+            </span>
+            <span className="is-pulled-right">{mdx.frontmatter.updated}</span>
+          </p>
+          <p>
+            <span className="is-uppercase has-text-weight-semibold">
               <i className="fa fa-calendar-o" aria-hidden="true"></i> created
             </span>
             <span className="is-pulled-right">{mdx.frontmatter.created}</span>

@@ -1,6 +1,7 @@
 ---
 title: "Sowing a digital garden with GatsbyJS and Obsidian"
 created: 2022-02-07T14:06
+updated: 2022-02-10
 tags: ["how-to", "development", "garden"]
 stage: "seedling"
 ---
