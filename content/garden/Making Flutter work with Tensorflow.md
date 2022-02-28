@@ -1,9 +1,9 @@
 ---
 title: "Making Flutter work with TensorFlow"
 created: 2022-02-27T14:23
-updated:
+updated: 2022-02-27T09:50
 tags: ["how-to", "flutter", "dev", "tensorflow"]
-stage: "seedling"
+stage: "budding"
 ---
 # Overview
 
@@ -57,7 +57,9 @@ conda activate tensorflow
 
 Generate the tensorflow binary.
 ```shell
-bazel build -c opt //tensorflow/lite/c:tensorflowlite_c --define tflite_with_xnnpack=true`
+bazel build -c opt \
+	//tensorflow/lite/c:tensorflowlite_c \
+	--define tflite_with_xnnpack=true`
 ```
 
 ## iOS
@@ -91,21 +93,28 @@ flutter pub get
 Then, unzip TensorFlowLiteC_framework.zip to `~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/`
 ```shell
 cd ../tensorflow
-unzip bazel-bin/tensorflow/lite/ios/TensorFlowLiteC_framework.zip -d ~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/
+unzip bazel-bin/tensorflow/lite/ios/TensorFlowLiteC_framework.zip \
+	-d ~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/
 ```
 
 ## Android
 
 For TensorFlow v2.2 or greater:
 ```shell
-bazel build -c opt --cxxopt=--std=c++11 --config=android_arm //tensorflow/lite/c:tensorflowlite_c
+bazel build -c opt \
+	--cxxopt=--std=c++11 
+	--config=android_arm \
+	//tensorflow/lite/c:tensorflowlite_c
 
 # similarily for arm64 use --config=android_arm64
 ```
 
 For v2.1 or less:
 ```shell
-bazel build -c opt --cxxopt=--std=c++11 --config=android_arm //tensorflow/lite/experimental/c:libtensorflowlite_c.so
+bazel build -c opt \
+	--cxxopt=--std=c++11 \
+	--config=android_arm \
+	//tensorflow/lite/experimental/c:libtensorflowlite_c.so
 
 # similarily for arm64 use --config=android_arm64
 ```
@@ -117,13 +126,15 @@ bazel build -c opt --cxxopt=--std=c++11 --config=android_arm //tensorflow/lite/e
 ### Wrong version
 
 If you get this error  when trying to then you do not have the right version.
-```shell
-ERROR: The project you're trying to build requires Bazel 4.2.1 (specified in /Users/bitjockey/Projects/tensorflow/.bazelversion), but it wasn't found in /opt/homebrew/Cellar/bazel/5.0.0/libexec/bin.
-```
+
+![[Screen Shot 2022-02-27 at 9.47.22 PM.png]]
 
 To fix:
+
 ```shell
-(cd "/opt/homebrew/Cellar/bazel/5.0.0/libexec/bin" && curl -fLO https://releases.bazel.build/4.2.1/release/bazel-4.2.1-darwin-arm64 && chmod +x bazel-4.2.1-darwin-arm64)
+(cd "/opt/homebrew/Cellar/bazel/5.0.0/libexec/bin" && \
+	curl -fLO https://releases.bazel.build/4.2.1/release/bazel-4.2.1-darwin-arm64 && \
+	chmod +x bazel-4.2.1-darwin-arm64)
 ```
 
 ### numpy missing
@@ -138,11 +149,7 @@ conda install numpy
 ## iOS simulator build errors
 
 Upon trying to build for iOS simulator, you may get this:
-```
-    '/opt/homebrew/Caskroom/flutter/2.8.1/flutter/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/TensorFlowLiteC.framework/Ten
-    sorFlowLiteC' for architecture arm64
-    clang: error: linker command failed with exit code 1 (use -v to see invocation)
-```
+![[Screen Shot 2022-02-27 at 9.46.31 PM.png]]
 
 From [here](https://stackoverflow.com/a/63955114) (thank you to the author).
 
