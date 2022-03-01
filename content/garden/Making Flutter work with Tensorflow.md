@@ -74,7 +74,8 @@ Run `./configure` and say `Y` to building with iOS support. You may be prompted 
 
 Once  configured:
 ```shell
-bazel build --config=ios_fat -c opt \  //tensorflow/lite/ios:TensorFlowLiteC_framework
+bazel build --config=ios_fat -c opt \
+	//tensorflow/lite/ios:TensorFlowLiteC_framework
 ```
 
 This will generate a `TensorFlowLiteC_framework.zip` under `bazel-bin/tensorflow/lite/ios`.
@@ -127,7 +128,7 @@ bazel build -c opt \
 
 If you get this error  when trying to then you do not have the right version.
 
-![[Screen Shot 2022-02-27 at 9.47.22 PM.png]]
+![[error_bazel.png]]
 
 To fix:
 
@@ -149,7 +150,7 @@ conda install numpy
 ## iOS simulator build errors
 
 Upon trying to build for iOS simulator, you may get this:
-![[Screen Shot 2022-02-27 at 9.46.31 PM.png]]
+![[error_flutter_linker.png]]
 
 From [here](https://stackoverflow.com/a/63955114) (thank you to the author).
 
