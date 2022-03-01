@@ -2,7 +2,7 @@
 title: "Making Flutter work with TensorFlow"
 created: 2022-02-27T14:23
 updated: 2022-02-27T09:50
-tags: ["how-to", "flutter", "dev", "tensorflow"]
+tags: ["how-to", "flutter", "dev", "tensorflow", "machine-learning"]
 stage: "budding"
 ---
 # Overview
