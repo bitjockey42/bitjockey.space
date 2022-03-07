@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/python",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Install-Python-and-setup-miniforge3","excerpt":"Setup I use pyenv to handle different python versions. macOS Using homebrew: To activate: title: \"Install Python and setup miniforge…","frontmatter":{"title":"Install Python and setup miniforge3","created":"2022-02-27T14:43","updated":null}}}]}},"pageContext":{"tag":"python"}},
+    "staticQueryHashes": []}

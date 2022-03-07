@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/rust",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Using-Rust-in-Flutter-code","excerpt":"Introduction I am trying to figure out how to integrate  huggingface  into my Flutter app. Here is my attempt at figuring that out. Setup…","frontmatter":{"title":"Using Rust in Flutter code","created":"2022-03-06T14:15","updated":"2022-03-06T14:15"}}}]}},"pageContext":{"tag":"rust"}},
+    "staticQueryHashes": []}

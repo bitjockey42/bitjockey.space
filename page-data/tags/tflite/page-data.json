@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/tflite",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Convert-Huggingface-model-to-TensorFlow-Lite","excerpt":"Overview I needed to convert a Hugging Face TensorFlow  model  to TensorFlow Lite (tflite) and did so with the method below. While it's…","frontmatter":{"title":"Convert Huggingface model to TensorFlow Lite","created":"2022-02-28T20:51","updated":"2022-02-28T20:51"}}}]}},"pageContext":{"tag":"tflite"}},
+    "staticQueryHashes": []}

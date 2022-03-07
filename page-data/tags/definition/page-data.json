@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/definition",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Digital-Garden","excerpt":"Definition There does not seem to be a  general  consensus on this, but I will say that I consider a digital garden to be any text-based…","frontmatter":{"title":"Digital Garden","created":"2022-02-08T22:24","updated":"2022-02-10T00:00:00.000Z"}}}]}},"pageContext":{"tag":"definition"}},
+    "staticQueryHashes": []}
