@@ -1,7 +1,7 @@
 ---
 title: "Making Flutter work with TensorFlow"
 created: 2022-02-27T14:23
-updated: 2022-02-27T09:50
+updated: 2022-03-07T02:22
 tags: ["how-to", "flutter", "dev", "tensorflow", "machine-learning"]
 stage: "budding"
 ---
@@ -64,6 +64,8 @@ bazel build -c opt \
 
 ## iOS
 
+**Build TensorFlowLiteC with iOS support**
+
 From [here](https://www.tensorflow.org/lite/guide/build_ios).
 ```shell
 cd tensorflow
@@ -80,22 +82,33 @@ bazel build --config=ios_fat -c opt \
 
 This will generate a `TensorFlowLiteC_framework.zip` under `bazel-bin/tensorflow/lite/ios`.
 
-The tricky part here will be where to extract this. You will need to go to the root of the project where `tflite_flutter` is a dependency and declared as such in `pubspec.yaml`.
+In your Flutter project, add `tflite_flutter` as a dependency:
+
+```bash
+flutter pub add tflite_flutter
+```
+
+`pubspec.yaml` will look like this:
 ```yaml
 dependencies:
   tflite_flutter: ^0.9.0
 ```
 
-Then install.
-```shell
-flutter pub get
+Then you'll need to extract  `TensorFlowLiteC.framework.zip` to `$FLUTTER_APP/ios/.symlinks/plugins/tflite_flutter/ios`:
+```bash
+unzip $TENSORFLOW_SRC/bazel-bin/tensorflow/lite/ios/TensorFlowLiteC_framework.zip \
+	-d $FLUTTER_APP_SRC/ios/.symlinks/plugins/tflite_flutter/ios
 ```
 
-Then, unzip TensorFlowLiteC_framework.zip to `~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/`
-```shell
-cd ../tensorflow
-unzip bazel-bin/tensorflow/lite/ios/TensorFlowLiteC_framework.zip \
-	-d ~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-0.9.0/ios/
+**NOTE** If the above fails, try installing the dependencies: `flutter pub get`
+
+**IMPORTANT** You'll need to run this before running `flutter run -d 'iphone 11'`
+```bash
+# within your flutter app source code
+flutter clean
+flutter pub get
+cd ios
+pod install
 ```
 
 ## Android
@@ -145,6 +158,19 @@ Make sure you have `numpy` installed.
 ```shell
 conda activate tensorflow
 conda install numpy
+```
+
+## iOS TensorflowLiteC.framework not found
+
+From [here](https://github.com/am15h/tflite_flutter_plugin/issues/163#issuecomment-984424456) (thank you to the author for this workaround. I was banging my head against the wall for days on this nonsense).
+
+You may find that upon trying to build and run the Flutter app, it'll fail: 
+```
+Error (Xcode): Framework not found TensorFlowLiteC
+
+
+Could not build the application for the simulator.
+Error launching application on iPhone 11
 ```
 
 ## iOS simulator build errors
