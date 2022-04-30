@@ -23,9 +23,10 @@ This is a guide on setting up [huggingface](https://huggingface.co) transformers
 
 ```shell
 # only 3.8-3.9 supported
-python_version=$(python -c "import platform; print(platform.python_version())")
-conda create -n [NAME] python=$python_version
-conda activate [NAME]
+# python_version=$(python -c "import platform; print(platform.python_version())")
+# conda create -n [NAME] python=$python_version
+conda create -n $NAME python=3.8  # 3.8 is stable
+conda activate $NAME
 conda install -c apple tensorflow-deps
 # conda install -c apple tensorflow-deps==2.6.0
 
