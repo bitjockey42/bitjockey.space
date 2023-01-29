@@ -9,6 +9,8 @@ Initialized from [here](https://dev.to/bathrobe/creating-a-diy-digital-garden-wi
   - [Obsidian Sync](#obsidian-sync)
   - [Templates](#templates)
 - [Usage](#usage)
+- [Additional Tips](#additional-tips)
+  - [Enable vim keybindings](#enable-vim-keybindings)
 
 # Setup
 
@@ -37,7 +39,7 @@ npm install
 Set up these folders:
 
 ```shell
-mkdir -p content/{garden,_private/templates}
+mkdir -p content/{garden,_private/_templates}
 ```
 
 ## Obsidian Sync
@@ -79,3 +81,9 @@ npm start  # Build in development mode and run
 ```
 
 Then, go to http://localhost:8000/.
+
+# Additional Tips
+
+## Enable vim keybindings
+
+Open Settings -> scroll down to Advanced -> toggle Vim key bindings on. This will "test" your compentency with `vim` navigation.
