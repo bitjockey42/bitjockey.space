@@ -133,6 +133,19 @@ bazel build -c opt \
 # similarily for arm64 use --config=android_arm64
 ```
 
+# Bundling library
+
+## macOS
+
+```shell
+open macos/Runner.xcworkspace
+```
+
+Go to Runner -> Targets -> Runner -> Build Phases.
+
+Click the + button under Copy bundle resources, click Add Other..., and then select the `libtensorflowlite_c-mac.dylib`.
+
+![[Screenshot 2023-02-05 at 4.25.43 PM.png]]
 # Troubleshooting
 
 ## bazel build errors
