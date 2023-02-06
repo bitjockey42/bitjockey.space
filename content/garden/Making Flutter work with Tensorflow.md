@@ -1,7 +1,7 @@
 ---
 title: "Making Flutter work with TensorFlow"
 created: 2022-02-27T14:23
-updated: 2022-03-07T02:22
+updated: 2023-02-05T16:42
 tags: ["how-to", "flutter", "dev", "tensorflow", "machine-learning"]
 stage: "budding"
 ---
@@ -133,6 +133,19 @@ bazel build -c opt \
 # similarily for arm64 use --config=android_arm64
 ```
 
+# Bundling library
+
+## macOS
+
+```shell
+open macos/Runner.xcworkspace
+```
+
+Go to Runner -> Targets -> Runner -> Build Phases.
+
+Click the + button under Copy bundle resources, click Add Other..., and then select the `libtensorflowlite_c-mac.dylib`.
+
+![[Screenshot 2023-02-05 at 4.25.43 PM.png]]
 # Troubleshooting
 
 ## bazel build errors
