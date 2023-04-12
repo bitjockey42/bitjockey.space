@@ -12,9 +12,9 @@ One would think it would be straightforward to install an iOS app you built your
 
 ## Preparation
 
-Follow instructions on [reviewing Xcode project settings](https://docs.flutter.dev/deployment/ios#review-xcode-project-settings). 
+Follow instructions on [reviewing Xcode project settings](https://docs.flutter.dev/deployment/ios#review-xcode-project-settings).
 
-## Build 
+## Build
 First, build the app.
 
 ```shell
@@ -45,7 +45,7 @@ You do not need to shell out $99/year if you just want to test apps on your own 
 
 Connect iPhone to Mac.
 
-Open Finder, then select Locations -> iPhone. 
+Open Finder, then select Locations -> iPhone.
 
 In another Finder window, open the folder where the ipa was exported. Drag the ipa to the iPhone window. The storage bar will turn into a progress bar.
 
@@ -70,7 +70,7 @@ flutter build linux --release -v  # Run verbose mode
 
 Then [build an AppImage](https://appimage-builder.readthedocs.io/en/latest/examples/flutter.html) with `appimage-builder` which is a utility that will create an `AppImage` from your Flutter Linux app.
 
-Download [appimage-builder](https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.0.0-beta.1/appimage-builder-1.0.0-677acbd-x86_64.AppImage).
+Download [appimage-builder]()
 
 To setup:
 
@@ -81,7 +81,7 @@ mkdir ~/Applications/
 mv appimage-builder-x86_64.AppImage ~/Applications/appimage-builder
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Running `appimage-builder --generate` didn't work for me, so I just copied an example `AppImageBuilder.yml`.
 
 Then, in your project directory, download the `AppImageBuilder.yml` example from [here](https://raw.githubusercontent.com/AppImageCrafters/appimage-builder-flutter-example/main/AppImageBuilder.yml) and place in your project folder.
@@ -98,13 +98,32 @@ appimage-builder --recipe AppImageBuilder.yml --skip-test
 
 # macOS
 
-## Build
+## Prepare for Distribution
 
+### With Apple Developer Account
+
+First, make sure you have a Developer ID certificate set up.
+
+Open up the Xcode workspace:
 ```shell
-flutter build macos
+open macos/Runner.xcworkspace
 ```
 
-## Distribution
+Then go to Xcode -> Settings -> Accounts. Add your Apple ID if it isn't already there. Then click on "Manage Certificates".
+
+Click the `+` button and select `Developer ID Application` to generate the certificate.
+
+Back in the Xcode workspace, click on "Runner" on the left sidebar, then in the inner window under TARGETS, select Runner.
+
+In the tabs above that screen, click on Signing & Certificates. Uncheck "Automatically manage signing" and set Team to your Apple ID that's associated with your Apple Developer Account. under Signing Certificate, select "Developer ID Application"
+
+#### Notarization
+
+In order to properly distribute your app, you have to modify the Signing & Capabilities settings. See [Common Notarization Issues](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues#3087735)
+
+#### Notarizing
+
+https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution#3087730
 
 ### Without an Apple Developer Account
 
@@ -113,11 +132,32 @@ Then open `Runner.xcworkspace`:
 open macos/Runner.xcworkspace
 ```
 
-Click on Product -> Archive. 
+Click on Product -> Archive.
 
 In the Archives window, select a build, then click Distribute App. Select Copy App, then select a location to export the app. This will produce a folder `Runner 2023-02-05 14-11-58`  inside which the `*.app` will be created.
 
-### Create a `dmg` 
+## Build app
+
+```shell
+flutter build macos
+```
+
+### With Apple Developer Account
+
+Verify codesigning:
+```shell
+codesign -vvv --deep --strict build/macos/Build/Products/Release/diarist.app/
+spctl -vvv --assess --type exec build/macos/Build/Products/Release/diarist.app
+codesign -dvv build/macos/Build/Products/Release/diarist.app
+```
+
+Open Xcode -> Product -> Archive.
+
+Xcode -> Window -> Organizer.
+
+select the most recent archive. click Distribute App. Follow prompts, this will upload your app to Apple notarization, which should complete in less than an hour.
+
+### Create a `dmg`
 
 Install [`appdmg`](https://github.com/LinusU/node-appdmg):
 
@@ -134,13 +174,71 @@ touch PROJECT_DIR/assets/app.json
 And paste:
 ```json
 {
-  "title": "My Application",
-  "icon": "my-app.icns",
-  "background": "my-background.png",
+  "title": "MyApp",
   "contents": [
     { "x": 448, "y": 344, "type": "link", "path": "/Applications" },
-    { "x": 192, "y": 344, "type": "file", "path": "MyApp.app" }
+    { "x": 192, "y": 344, "type": "file", "path": "../build/macos/Build/Products/Release/myapp.app/" }
   ]
 }
+```
+
+Then run:
+```shell
+appdmg assets/app.json MyApp.dmg
+```
+
+This will put the macos build in the DMG.
+
+# Troubleshooting
+
+### Cocoapods not found
+
+#### Standalone flutter
+
+This refers to the mainline release.
+
+Whenever macOS updates to a new version you will have to uninstall cocoapods if installed through `gem`:
+
+```shell
+sudo gem uninstall cocoapods cocoapods-core
+```
+
+Then install with `brew`:
+
+```shell
+brew install cocoapods
+```
+
+If any issues arise regarding the `brew link` step:
+
+```shell
+brew link --overwrite cocoapods
+brew reinstall cocoapods
+
+flutter doctor
+```
+
+source:  [StackOverflow post](https://stackoverflow.com/a/71398813)
+
+#### With fvm
+
+Running `fvm flutter doctor` will sometimes lead to cocoapods not being found even if it's installed. This appears to be a [bug](https://github.com/fluttertools/fvm/issues/253).
+
+So in order to account for this, we can set an `alias` in `.zprofile/.bash_profile/.zshrc`:
+
+```shell
+alias f=".fvm/flutter_sdk/bin/flutter"`
+```
+
+Then restart shell.
+
+```shell
+exec $SHELL
+```
+
+Check if flutter doctor finds any issues:
+
+```shell
+f doctor
 ```
 
