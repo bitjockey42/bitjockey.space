@@ -111,6 +111,19 @@ cd ios
 pod install
 ```
 
+### Troubleshooting: error: thread-local storage is not supported for the current target
+
+If you encounter something like this during the build process for the TF Lite binary:
+```
+external/eigen_archive/unsupported/Eigen/CXX11/src/ThreadPool/NonBlockingThreadPool.h:468:5: error: thread-local storage is not supported for the current target
+    EIGEN_THREAD_LOCAL PerThread per_thread_;
+    ^
+```
+
+In the `tensorflow` directory, open `lite/ios/ios.bzl` with a text editor and edit `TFL_MINIMUM_OS_VERSION` to equal `"12.0"`.
+
+Then run `bazel clean` and re-run the build steps above.
+
 ## Android
 
 For TensorFlow v2.2 or greater:
