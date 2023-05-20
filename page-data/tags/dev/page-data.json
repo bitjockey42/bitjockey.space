@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/dev",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Making-Flutter-work-with-Tensorflow","excerpt":"Overview As of this writing, TensorFlow Lite does not have an official library for Flutter. So I am trying to make it all work with  this…","frontmatter":{"title":"Making Flutter work with TensorFlow","created":"2022-02-27T14:23","updated":"2023-02-05T16:42"}}}]}},"pageContext":{"tag":"dev"}},
+    "staticQueryHashes": []}

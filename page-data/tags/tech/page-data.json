@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/tech",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Framework-Laptop-13","excerpt":"I recently got a  Framework Laptop 13 DIY Edition  to replace my Thinkpad T480 and System76 Adder WS 1. Here are some notes on installation…","frontmatter":{"title":"Framework Laptop 13","created":"2023-05-20T08:11","updated":"2023-05-20T08:11"}}}]}},"pageContext":{"tag":"tech"}},
+    "staticQueryHashes": []}

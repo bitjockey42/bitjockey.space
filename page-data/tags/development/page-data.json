@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/development",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Sowing-a-digital-garden-with-GatsbyJS-and-Obsidian","excerpt":"Overview In this I will describe the steps I took to create this [ Digital Garden ]. Ingredients [ Obsidian ] - what I'm using to write this…","frontmatter":{"title":"Sowing a digital garden with GatsbyJS and Obsidian","created":"2022-02-07T14:06","updated":"2022-02-11T02:03"}}}]}},"pageContext":{"tag":"development"}},
+    "staticQueryHashes": []}

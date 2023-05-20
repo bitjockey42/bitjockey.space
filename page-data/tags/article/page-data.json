@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/article",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Solipsis","excerpt":"It all began with a cryptic, incomprehensible text message from my friend, M. \"sorry i needed to write that down somewhere lol\" was her…","frontmatter":{"title":"Solipsis","created":"2022-03-11T00:25","updated":"2022-03-11T00:25"}}},{"node":{"slug":"The-tyranny-of-timelines","excerpt":"In which I rant about my frustrations with the modern web and reminiscence on my early years developing for the web.... The angst of…","frontmatter":{"title":"The tyranny of timelines","created":"2022-02-08T23:48","updated":null}}}]}},"pageContext":{"tag":"article"}},
+    "staticQueryHashes": []}
