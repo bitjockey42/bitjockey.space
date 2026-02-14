@@ -7,7 +7,7 @@ const Header = ({ children, showHome }) => {
     <Hero>
       <HeroBody>{children}</HeroBody>
       {showHome && (
-        <Link to="/" className="button is-small is-info">
+        <Link to="/" className="button is-small">
           &larr; Back Home
         </Link>
       )}

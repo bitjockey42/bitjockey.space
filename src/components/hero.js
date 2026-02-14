@@ -10,7 +10,7 @@ const HeroBody = ({ children }) => {
 
 const Hero = ({ children }) => {
   return (
-    <section className="hero is-small is-link has-text-centered">
+    <section className="hero is-dark is-small has-text-centered">
       {children}
     </section>
   )

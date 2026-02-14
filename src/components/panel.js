@@ -38,7 +38,7 @@ const Panel = ({ mdx }) => {
   }
 
   return (
-    <article className="panel is-info">
+    <article className="panel">
       <p className="panel-heading">Metadata</p>
       <p className="panel-tabs">
         {tags.length > 0 && (
