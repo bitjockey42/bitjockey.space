@@ -1,9 +1,11 @@
 ---
-title: "The tyranny of timelines"
+title: The tyranny of timelines
 created: 2022-02-08T23:48
-updated:
-tags: ["article"]
-stage: "budding"
+updated: 2026-02-14T01:32
+tags:
+  - article
+  - personal
+stage: budding
 ---
 
 _In which I rant about my frustrations with the modern web and reminiscence on my early years developing for the web...._
