@@ -1,7 +1,7 @@
 ---
 title: My digital Valentine's Day gift
 created: 2026-02-13T21:08
-updated: 2026-02-14T01:31
+updated: 2026-02-14T01:37
 tags:
   - personal
 stage: seedling
@@ -26,8 +26,10 @@ So I looked into [Electron Forge](https://www.electronforge.io/) and initialized
 
 # Results
 
-I'll document the entire process of development in a separate post, but for now, you can see the results in GitHub [here](https://github.com/bitjockey42/jigsaw/releases/). I've made signed builds for Windows, macOS, and binaries for Linux (`*.deb` and `*.rpm`; am working on supporting `appimage`).
+I'll document the entire process of development in [[Electron App Development]], but for now, you can see the results in GitHub [here](https://github.com/bitjockey42/jigsaw/releases/). I've made signed builds for Windows, macOS, and binaries for Linux (`*.deb` and `*.rpm`; am working on supporting `appimage`).
 
 In the future, I'd like to rewrite the code a bit so I can add multiplayer/co-op support. That will take quite a bit of time, so time will tell when I'll be able to achieve that. For now, this works for single-player, offline fun.
+
+# Hope
 
 I'll be showing my wife the project tomorrow for Valentine's Day. I know she'll appreciate the effort, but I genuinely hope she finds the game fun. 
