@@ -1,7 +1,7 @@
 ---
 title: Electron App Development
 created: 2026-02-14T01:37
-updated: 2026-02-14T01:43
+updated: 2026-02-14T01:45
 tags:
   - how-to
   - development
@@ -23,4 +23,10 @@ I created  a new app with this command; since I just wanted to port over a websi
 npx create-electron-app@latest my-app
 ```
 
+# Packaging (signed) builds
 
+## Windows
+
+## Linux
+
+## macOS
