@@ -3,13 +3,13 @@
 // If need, change your variables before importing Bulma
 $title-color: #0077ff;
 
+@import "~bulmaswatch/slate/bulmaswatch.scss";
 @import "~bulma/bulma.sass";
-@import "~bulmaswatch/lumen/bulmaswatch.scss";
 @import "~fork-awesome/css/fork-awesome.css";
 @import "./typography.css";
 
 body {
-  font-family: "Merriweather"
+  font-family: "Merriweather", Arial, Helvetica, sans-serif;
 }
 
 pre {
