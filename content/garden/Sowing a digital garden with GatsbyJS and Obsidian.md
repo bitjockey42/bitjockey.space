@@ -1,7 +1,7 @@
 ---
 title: Sowing a digital garden with GatsbyJS and Obsidian
 created: 2022-02-07T14:06
-updated: 2026-02-14T02:14
+updated: 2026-03-06T22:56
 tags:
   - how-to
   - development
@@ -161,7 +161,7 @@ tags: ["garden"]
 stage: "seedling"
 ---
 ```
-5. Go to Settings -> Community Plugins and disable Restricted mode (if it's not already disabled). Click on "Browse" and search for "Updated modified date". Install and enable this plugin, then go to the options. Set **Modified date property** to `updated`, then change **Date format** to `YYYY-MM-DDTHH:mm`. Turn on **Only update existing fields** and **Use typing events instead of Obsidian events**.
+5. Go to Settings -> Community Plugins and disable Restricted mode (if it's not already disabled). Click on "Browse" and search for "Updated frontmatter modified date". Install and enable this plugin, then go to the options. Set **Modified date property** to `updated`, then change **Date format** to `YYYY-MM-DDTHH:mm`. Turn on **Only update existing fields** and **Use typing events instead of Obsidian events**.
 6. **To setup sync** (optional) This requires the [sync](https://obsidian.md/sync) plan, which is a paid plan for Obsidian. Go to Settings -> Sync and click "Connect" next to **Remote vault**. You may have to log in before this.
 
 ## Obsidian Mobile
