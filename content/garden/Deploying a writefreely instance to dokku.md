@@ -1,7 +1,7 @@
 ---
 title: Deploying a writefreely instance to dokku
 created: 2026-03-06T22:59
-updated: 2026-03-07T23:49
+updated: 2026-03-08T00:02
 tags:
   - how-to
   - dokku
@@ -62,7 +62,7 @@ tls      = false
 ## On the old server
 
 ```shell
-dokku mariadb:export > writefreely.dump
+dokku mariadb:export write > writefreely.dump
 tar -cvf storage.tar.gz /var/lib/dokku/data/storage
 ```
 
