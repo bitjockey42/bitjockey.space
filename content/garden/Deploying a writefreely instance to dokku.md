@@ -1,7 +1,7 @@
 ---
 title: Deploying a writefreely instance to dokku
 created: 2026-03-06T22:59
-updated: 2026-03-07T23:41
+updated: 2026-03-07T23:49
 tags:
   - how-to
   - dokku
@@ -87,12 +87,19 @@ scp storage.tar.gz vps:/home/user/
 
 ```shell
 dokku apps:create write
+
+# Set up writefreely data
 tar xfv storage.tar.gz
 sudo cp -r storage/write /var/lib/dokku/data/storage/write
 dokku storage:ensure-directory write
 dokku storage:mount write /var/lib/dokku/data/storage/write:/data
+
+# Set up writefreely db
 dokku mariadb:create write_db
 dokku mariadb:link write_db write
+dokku mariadb:import write_db < writefreely.dump
+
+# Set Dockerfile to the prod version in the writefreely repo
 dokku builder-dockerfile:set write dockerfile-path Dockerfile.prod
 ```
 
@@ -121,3 +128,9 @@ git remote add dokku dokku@vps:write
 git push -u dokku master
 ```
 
+## Back on the dokku server
+
+```shell
+dokku ports:set write http:80:8080
+dokku letsencrypt:enable write
+```
