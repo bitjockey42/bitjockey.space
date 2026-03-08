@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/writefreely",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Deploying-a-writefreely-instance-to-dokku","excerpt":"Deploying a new instance On dokku On local machine This will fail because you need to run some more commands on dokku (see next section…","frontmatter":{"title":"Deploying a writefreely instance to dokku","created":"2026-03-06T22:59","updated":"2026-03-08T00:02"}}}]}},"pageContext":{"tag":"writefreely"}},
+    "staticQueryHashes": []}

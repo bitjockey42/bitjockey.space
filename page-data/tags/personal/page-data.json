@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/personal",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"My-digital-Valentine's-Day-gift","excerpt":"Introduction My wife and I are currently long-distance (at least until I get a visa to move to her country permanently), so we aren't able…","frontmatter":{"title":"My digital Valentine's Day gift","created":"2026-02-13T21:08","updated":"2026-02-14T01:37"}}},{"node":{"slug":"The-tyranny-of-timelines","excerpt":"In which I rant about my frustrations with the modern web and reminiscence on my early years developing for the web.... The angst of…","frontmatter":{"title":"The tyranny of timelines","created":"2022-02-08T23:48","updated":"2026-02-14T01:32"}}}]}},"pageContext":{"tag":"personal"}},
+    "staticQueryHashes": []}

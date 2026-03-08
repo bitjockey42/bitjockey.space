@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/development",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Electron-App-Development","excerpt":"Overview Herein I will try to document what I did to make an Electron-based app. Requirements node v24 installed with  nvm Electron Forge…","frontmatter":{"title":"Electron App Development","created":"2026-02-14T01:37","updated":"2026-02-14T01:45"}}},{"node":{"slug":"Sowing-a-digital-garden-with-GatsbyJS-and-Obsidian","excerpt":"Overview In this I will describe the steps I took to create this [ Digital Garden ]. You can view the code for this garden  here  on GitHub…","frontmatter":{"title":"Sowing a digital garden with GatsbyJS and Obsidian","created":"2022-02-07T14:06","updated":"2026-03-06T22:56"}}}]}},"pageContext":{"tag":"development"}},
+    "staticQueryHashes": []}

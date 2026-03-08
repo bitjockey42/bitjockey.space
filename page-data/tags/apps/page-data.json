@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/apps",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Obsidian","excerpt":"Obsidian is markdown-based knowledge base that functions like a wiki in that it's non-linear. The  official site  describes it as \"a second…","frontmatter":{"title":"Obsidian","created":"2022-02-08T22:23","updated":"2022-02-10T00:00:00.000Z"}}}]}},"pageContext":{"tag":"apps"}},
+    "staticQueryHashes": []}

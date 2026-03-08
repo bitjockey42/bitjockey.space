@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/electron",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Electron-App-Development","excerpt":"Overview Herein I will try to document what I did to make an Electron-based app. Requirements node v24 installed with  nvm Electron Forge…","frontmatter":{"title":"Electron App Development","created":"2026-02-14T01:37","updated":"2026-02-14T01:45"}}}]}},"pageContext":{"tag":"electron"}},
+    "staticQueryHashes": []}

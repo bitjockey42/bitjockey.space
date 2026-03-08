@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/flutter",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Flutter","excerpt":"Flutter   is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single…","frontmatter":{"title":"Flutter","created":"2023-01-30T00:29","updated":"2023-01-30T00:29"}}},{"node":{"slug":"Making-Flutter-work-with-Tensorflow","excerpt":"Overview As of this writing, TensorFlow Lite does not have an official library for Flutter. So I am trying to make it all work with  this…","frontmatter":{"title":"Making Flutter work with TensorFlow","created":"2022-02-27T14:23","updated":"2023-02-05T16:42"}}}]}},"pageContext":{"tag":"flutter"}},
+    "staticQueryHashes": []}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/ios",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Building-Flutter-apps-for-distribution","excerpt":"One would think it would be straightforward to install an iOS app you built yourself to your own iPhone. And yet...it took  this  lifesaver…","frontmatter":{"title":"Building Flutter apps for distribution","created":"2022-02-28T01:16","updated":"2023-02-05T02:17"}}}]}},"pageContext":{"tag":"ios"}},
+    "staticQueryHashes": []}

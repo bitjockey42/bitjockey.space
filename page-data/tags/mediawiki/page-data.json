@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-template-js",
+    "path": "/tags/mediawiki",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"slug":"Deploying-mediawiki-to-dokku","excerpt":"Migrating a mediawiki instance from one dokku server to another On the old server On local machine Download the dump Then exit  sftp  and…","frontmatter":{"title":"Deploying mediawiki to dokku","created":"2026-03-07T00:40","updated":"2026-03-08T00:24"}}}]}},"pageContext":{"tag":"mediawiki"}},
+    "staticQueryHashes": []}
