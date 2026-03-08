@@ -1,7 +1,7 @@
 ---
 title: Deploying a writefreely instance to dokku
 created: 2026-03-06T22:59
-updated: 2026-03-06T23:21
+updated: 2026-03-07T23:41
 tags:
   - how-to
   - dokku
@@ -93,6 +93,7 @@ dokku storage:ensure-directory write
 dokku storage:mount write /var/lib/dokku/data/storage/write:/data
 dokku mariadb:create write_db
 dokku mariadb:link write_db write
+dokku builder-dockerfile:set write dockerfile-path Dockerfile.prod
 ```
 
 Look at what the `DATABASE_URL` has been set to and get the db pass from there.
